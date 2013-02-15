@@ -10,12 +10,12 @@
 
 @implementation MCWoolColors
 
-@synthesize colorsArray = _colorsArray, woolIndeces = _woolIndeces;
+@synthesize woolArray = _woolArray;
 
 - (id)init {
     self = [super init];
     if (self) {
-        _colorsArray = [[NSArray alloc] initWithObjects:
+        _woolArray = [[NSArray alloc] initWithObjects:
                         [NSColor colorWithCalibratedRed:221.0f/255.0f  green:221.0f/255.0f  blue:221.0f/255.0f  alpha:1.0f],    //White         0
                         [NSColor colorWithCalibratedRed:219.0f/255.0f green:125.0f/255.0f blue:62.0f/255.0f alpha:1.0f],        //Orange        1
                         [NSColor colorWithCalibratedRed:179.0f/255.0f green:80.0f/255.0f blue:188.0f/255.0f alpha:1.0f],        //Magenta       2
@@ -33,31 +33,27 @@
                         [NSColor colorWithCalibratedRed:150.0f/255.0f green:52.0f/255.0f blue:48.0f/255.0f alpha:1.0f],         //Red           14
                         [NSColor colorWithCalibratedRed:25.0f/255.0f green:22.0f/255.0f blue:22.0f/255.0f alpha:1.0f],          //Black         15
                         nil];
-        _woolIndeces = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
-- (NSColor *)woolColorFromTrueColor:(NSColor *)color {
+- (NSUInteger)woolIndexFromTrueColor:(NSColor *)color {
     CGFloat average = MAXFLOAT;
-    NSColor *closestColor = nil;
-    int closestIndex = 0;
+    NSUInteger closestIndex = 0;
     
-    for (int i=0; i<self.colorsArray.count; i++) {
-        NSColor *woolColor = [self.colorsArray objectAtIndex:i];
+    for (int i=0; i<self.woolArray.count; i++) {
+        NSColor *woolColor = [self.woolArray objectAtIndex:i];
         CGFloat redDif = fabsf(woolColor.redComponent-color.redComponent);
         CGFloat greenDif = fabsf(woolColor.greenComponent-color.greenComponent);
         CGFloat blueDif = fabsf(woolColor.blueComponent-color.blueComponent);
         CGFloat newAvg = (redDif + greenDif + blueDif)/3.0f;
         if (newAvg<average) {
             average = newAvg;
-            closestColor = woolColor;
             closestIndex = i;
         }
     }
-    
-    [self.woolIndeces addObject:[NSNumber numberWithInt:closestIndex]];
-    return closestColor;
+
+    return closestIndex;
 }
 
 @end

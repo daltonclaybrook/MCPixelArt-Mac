@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-//#import "NSDataGZipAdditions.h"
 #import "NSData+GZIP.h"
 
 enum {
@@ -29,6 +28,6 @@ enum {
 
 @property (nonatomic, strong) NSData *schemData;
 
-- (void)createSchematicWithIndeces:(NSArray *)wool andSize:(CGSize)size;
+- (NSData *)createSchematicWithIndeces:(NSArray *)wool andSize:(CGSize)size;
 
 @end

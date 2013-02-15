@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7574752316CEBB3C00C68060 /* PixelationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7574752216CEBB3C00C68060 /* PixelationView.m */; };
+		7574752616CEC5E100C68060 /* WoolImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7574752516CEC5E100C68060 /* WoolImage.m */; };
 		758C4A9316CC6B5900D737C7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758C4A9216CC6B5900D737C7 /* Cocoa.framework */; };
 		758C4A9D16CC6B5900D737C7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 758C4A9B16CC6B5900D737C7 /* InfoPlist.strings */; };
 		758C4A9F16CC6B5900D737C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 758C4A9E16CC6B5900D737C7 /* main.m */; };
@@ -15,17 +17,16 @@
 		758C4AA916CC6B5900D737C7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 758C4AA716CC6B5900D737C7 /* MainMenu.xib */; };
 		758C4AB116CC6D9700D737C7 /* ImageLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 758C4AB016CC6D9700D737C7 /* ImageLogic.m */; };
 		758C4AB416CC765C00D737C7 /* MCWoolColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 758C4AB316CC765C00D737C7 /* MCWoolColors.m */; };
-		75ACAC7616CD8DED009FAB42 /* schemTest3.schematic in Resources */ = {isa = PBXBuildFile; fileRef = 75ACAC7516CD8DED009FAB42 /* schemTest3.schematic */; };
-		75AD194F16CC9DDF0056EFEF /* schemTest.schematic in Resources */ = {isa = PBXBuildFile; fileRef = 75AD194E16CC9DDF0056EFEF /* schemTest.schematic */; };
 		75AD195216CC9DEF0056EFEF /* Schematic.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AD195116CC9DEF0056EFEF /* Schematic.m */; };
-		75AD195416CCA23E0056EFEF /* bigtest.nbt in Resources */ = {isa = PBXBuildFile; fileRef = 75AD195316CCA23E0056EFEF /* bigtest.nbt */; };
 		75AD195916CCA5320056EFEF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 75AD195816CCA5320056EFEF /* libz.dylib */; };
-		75AD195B16CCAA2C0056EFEF /* test.schematic in Resources */ = {isa = PBXBuildFile; fileRef = 75AD195A16CCAA2C0056EFEF /* test.schematic */; };
 		75AD196116CCAE740056EFEF /* NSData+GZIP.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AD196016CCAE740056EFEF /* NSData+GZIP.m */; };
-		75AD196316CCBA610056EFEF /* schemTest2.schematic in Resources */ = {isa = PBXBuildFile; fileRef = 75AD196216CCBA610056EFEF /* schemTest2.schematic */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7574752116CEBB3C00C68060 /* PixelationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixelationView.h; sourceTree = "<group>"; };
+		7574752216CEBB3C00C68060 /* PixelationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PixelationView.m; sourceTree = "<group>"; };
+		7574752416CEC5E100C68060 /* WoolImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoolImage.h; sourceTree = "<group>"; };
+		7574752516CEC5E100C68060 /* WoolImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoolImage.m; sourceTree = "<group>"; };
 		758C4A8F16CC6B5900D737C7 /* MCPixelArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCPixelArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		758C4A9216CC6B5900D737C7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		758C4A9516CC6B5900D737C7 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -43,16 +44,11 @@
 		758C4AB016CC6D9700D737C7 /* ImageLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageLogic.m; sourceTree = "<group>"; };
 		758C4AB216CC765C00D737C7 /* MCWoolColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCWoolColors.h; sourceTree = "<group>"; };
 		758C4AB316CC765C00D737C7 /* MCWoolColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCWoolColors.m; sourceTree = "<group>"; };
-		75ACAC7516CD8DED009FAB42 /* schemTest3.schematic */ = {isa = PBXFileReference; lastKnownFileType = file; path = schemTest3.schematic; sourceTree = "<group>"; };
-		75AD194E16CC9DDF0056EFEF /* schemTest.schematic */ = {isa = PBXFileReference; lastKnownFileType = file; path = schemTest.schematic; sourceTree = "<group>"; };
 		75AD195016CC9DEF0056EFEF /* Schematic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schematic.h; sourceTree = "<group>"; };
 		75AD195116CC9DEF0056EFEF /* Schematic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schematic.m; sourceTree = "<group>"; };
-		75AD195316CCA23E0056EFEF /* bigtest.nbt */ = {isa = PBXFileReference; lastKnownFileType = file; path = bigtest.nbt; sourceTree = "<group>"; };
 		75AD195816CCA5320056EFEF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		75AD195A16CCAA2C0056EFEF /* test.schematic */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.schematic; sourceTree = "<group>"; };
 		75AD195F16CCAE740056EFEF /* NSData+GZIP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+GZIP.h"; sourceTree = "<group>"; };
 		75AD196016CCAE740056EFEF /* NSData+GZIP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+GZIP.m"; sourceTree = "<group>"; };
-		75AD196216CCBA610056EFEF /* schemTest2.schematic */ = {isa = PBXFileReference; lastKnownFileType = file; path = schemTest2.schematic; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +64,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7574752716CECC8600C68060 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				758C4AAF16CC6D9700D737C7 /* ImageLogic.h */,
+				758C4AB016CC6D9700D737C7 /* ImageLogic.m */,
+				758C4AB216CC765C00D737C7 /* MCWoolColors.h */,
+				758C4AB316CC765C00D737C7 /* MCWoolColors.m */,
+				75AD195016CC9DEF0056EFEF /* Schematic.h */,
+				75AD195116CC9DEF0056EFEF /* Schematic.m */,
+				7574752416CEC5E100C68060 /* WoolImage.h */,
+				7574752516CEC5E100C68060 /* WoolImage.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		7574752816CECCA600C68060 /* Outsourced */ = {
+			isa = PBXGroup;
+			children = (
+				75AD195F16CCAE740056EFEF /* NSData+GZIP.h */,
+				75AD196016CCAE740056EFEF /* NSData+GZIP.m */,
+			);
+			name = Outsourced;
+			sourceTree = "<group>";
+		};
+		7574752916CECCC400C68060 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				7574752116CEBB3C00C68060 /* PixelationView.h */,
+				7574752216CEBB3C00C68060 /* PixelationView.m */,
+				758C4AA716CC6B5900D737C7 /* MainMenu.xib */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
 		758C4A8616CC6B5900D737C7 = {
 			isa = PBXGroup;
 			children = (
@@ -108,22 +138,11 @@
 		758C4A9816CC6B5900D737C7 /* MCPixelArt */ = {
 			isa = PBXGroup;
 			children = (
-				75AD195F16CCAE740056EFEF /* NSData+GZIP.h */,
-				75AD196016CCAE740056EFEF /* NSData+GZIP.m */,
-				75ACAC7516CD8DED009FAB42 /* schemTest3.schematic */,
-				75AD195A16CCAA2C0056EFEF /* test.schematic */,
-				75AD195316CCA23E0056EFEF /* bigtest.nbt */,
-				75AD196216CCBA610056EFEF /* schemTest2.schematic */,
-				75AD194E16CC9DDF0056EFEF /* schemTest.schematic */,
+				7574752716CECC8600C68060 /* Model */,
+				7574752816CECCA600C68060 /* Outsourced */,
+				7574752916CECCC400C68060 /* UI */,
 				758C4AA416CC6B5900D737C7 /* AppDelegate.h */,
 				758C4AA516CC6B5900D737C7 /* AppDelegate.m */,
-				758C4AA716CC6B5900D737C7 /* MainMenu.xib */,
-				758C4AAF16CC6D9700D737C7 /* ImageLogic.h */,
-				758C4AB016CC6D9700D737C7 /* ImageLogic.m */,
-				758C4AB216CC765C00D737C7 /* MCWoolColors.h */,
-				758C4AB316CC765C00D737C7 /* MCWoolColors.m */,
-				75AD195016CC9DEF0056EFEF /* Schematic.h */,
-				75AD195116CC9DEF0056EFEF /* Schematic.m */,
 				758C4A9916CC6B5900D737C7 /* Supporting Files */,
 			);
 			path = MCPixelArt;
@@ -195,11 +214,6 @@
 				758C4A9D16CC6B5900D737C7 /* InfoPlist.strings in Resources */,
 				758C4AA316CC6B5900D737C7 /* Credits.rtf in Resources */,
 				758C4AA916CC6B5900D737C7 /* MainMenu.xib in Resources */,
-				75AD194F16CC9DDF0056EFEF /* schemTest.schematic in Resources */,
-				75AD195416CCA23E0056EFEF /* bigtest.nbt in Resources */,
-				75AD195B16CCAA2C0056EFEF /* test.schematic in Resources */,
-				75AD196316CCBA610056EFEF /* schemTest2.schematic in Resources */,
-				75ACAC7616CD8DED009FAB42 /* schemTest3.schematic in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +230,8 @@
 				758C4AB416CC765C00D737C7 /* MCWoolColors.m in Sources */,
 				75AD195216CC9DEF0056EFEF /* Schematic.m in Sources */,
 				75AD196116CCAE740056EFEF /* NSData+GZIP.m in Sources */,
+				7574752316CEBB3C00C68060 /* PixelationView.m in Sources */,
+				7574752616CEC5E100C68060 /* WoolImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

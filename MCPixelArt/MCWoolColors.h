@@ -10,9 +10,8 @@
 
 @interface MCWoolColors : NSObject
 
-@property (nonatomic, strong, readonly) NSArray *colorsArray;
-@property (nonatomic, strong) NSMutableArray *woolIndeces;
+@property (nonatomic, strong, readonly) NSArray *woolArray;
 
-- (NSColor *)woolColorFromTrueColor:(NSColor *)color;
+- (NSUInteger)woolIndexFromTrueColor:(NSColor *)color;
 
 @end

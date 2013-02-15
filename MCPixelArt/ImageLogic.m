@@ -14,7 +14,7 @@
 @property (nonatomic, strong) MCWoolColors *woolColors;
 
 - (CGContextRef)createARGBBitmapContextFromImage:(CGImageRef)inImage;
--(NSImage *)createImageFromArray:(unsigned char *)myBuffer andRect:(CGRect)rect;
+-(WoolImage *)createImageFromArray:(unsigned char *)myBuffer andRect:(CGRect)rect;
 
 @end
 
@@ -35,20 +35,14 @@
     _aspectRatio = image.size.width/image.size.height;
 }
 
-- (NSImage *)processImageWithSize:(CGSize)size {
-    [self.image setScalesWhenResized:YES];
-    
-    NSImage *smallImage = [[NSImage alloc] initWithSize:NSSizeFromCGSize(size)];
-    [smallImage lockFocus];
-    [self.image setSize:NSSizeFromCGSize(size)];
-    [[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationHigh];
-    [self.image compositeToPoint:NSZeroPoint operation:NSCompositeCopy];
-    [smallImage unlockFocus];
-    
-    // create the image somehow, load from file, draw into it...
-    CGImageSourceRef source;
-    
-    source = CGImageSourceCreateWithData((__bridge CFDataRef)[smallImage TIFFRepresentation], NULL);
+- (WoolImage *)processImageWithSize:(CGSize)size {
+    NSImage *resizedImage = [[NSImage alloc] initWithSize:NSMakeSize(size.width, size.height)];
+    NSSize originalSize = [self.image size];
+    [resizedImage lockFocus];
+    [self.image drawInRect:NSMakeRect(0, 0, size.width, size.height) fromRect:NSMakeRect(0, 0, originalSize.width, originalSize.height) operation: NSCompositeSourceOver fraction: 1.0];
+    [resizedImage unlockFocus];
+      
+    CGImageSourceRef source = CGImageSourceCreateWithData((__bridge CFDataRef)[resizedImage TIFFRepresentation], NULL);
     CGImageRef cgImage =  CGImageSourceCreateImageAtIndex(source, 0, NULL);
     
     CGContextRef context = [self createARGBBitmapContextFromImage:cgImage];
@@ -62,24 +56,33 @@
     
     unsigned char *data = CGBitmapContextGetData(context);
     unsigned char *newData = (unsigned char *)malloc(width*height*4);
+    NSMutableArray *woolIndeces = [NSMutableArray array];
     CGContextRelease(context);
     
     if (data != NULL) {
         for (int i=0; i<width*height*4; i+=4) {
             NSColor *oldColor = [NSColor colorWithCalibratedRed:data[i+1]/255.0 green:data[i+2]/255.0 blue:data[i+3]/255.0 alpha:data[i]/255.0];
-            NSColor *newColor = [self.woolColors woolColorFromTrueColor:oldColor];
+            NSUInteger index = [self.woolColors woolIndexFromTrueColor:oldColor];
+            NSColor *newColor = [self.woolColors.woolArray objectAtIndex:index];
+            [woolIndeces addObject:[NSNumber numberWithInteger:index]];
+            
             newData[i] = 255;
             newData[i+1] = (int)(newColor.redComponent * 255.0);
             newData[i+2] = (int)(newColor.greenComponent * 255.0);
             newData[i+3] = (int)(newColor.blueComponent * 255.0);
         }
         free(data);
+    } else {
+        return nil;
     }
     
-    Schematic *schematic = [[Schematic alloc] init];
-    [schematic createSchematicWithIndeces:self.woolColors.woolIndeces andSize:CGSizeMake(width, height)];
+    for (int i=0; i<floorf((woolIndeces.count/2.0)); i++) {
+        //Reverse array
+        [woolIndeces exchangeObjectAtIndex:i withObjectAtIndex:woolIndeces.count-1-i];
+    }
     
-    NSImage *newImage = [self createImageFromArray:newData andRect:NSMakeRect(0, 0, width, height)];
+    WoolImage *newImage = [self createImageFromArray:newData andRect:NSMakeRect(0, 0, width, height)];
+    [newImage setWoolData:woolIndeces];
     free(newData);
     
     return newImage;
@@ -135,7 +138,7 @@
     return context;
 }
 
--(NSImage *)createImageFromArray:(unsigned char *)myBuffer andRect:(CGRect)rect {
+-(WoolImage *)createImageFromArray:(unsigned char *)myBuffer andRect:(CGRect)rect {
     char* rgba = (char*)malloc(rect.size.width*rect.size.height*4);
     for(int i=0; i < rect.size.width*rect.size.height; ++i) {
         rgba[4*i] = myBuffer[4*i];
@@ -158,7 +161,7 @@
     
     CGImageRef cgImage = CGBitmapContextCreateImage(bitmapContext);
     NSRect sizeRect = NSRectFromCGRect(rect);
-    NSImage *newImage = [[NSImage alloc] initWithCGImage:cgImage size:NSMakeSize(sizeRect.size.width, sizeRect.size.height)];
+    WoolImage *newImage = [[WoolImage alloc] initWithCGImage:cgImage size:NSMakeSize(sizeRect.size.width, sizeRect.size.height)];
     
     CFRelease(cgImage);
     CFRelease(bitmapContext);

@@ -7,10 +7,6 @@
 //
 
 #import "Schematic.h"
-//#import "ClassExtensions.h"
-
-static NSString *kParentContainerKey = @"parentContainer";
-static NSString *kBytesConsumedKey = @"bytesConsumed";
 
 @interface Schematic ()
 
@@ -23,61 +19,20 @@ static NSString *kBytesConsumedKey = @"bytesConsumed";
 - (NSArray *)processListData:(NSData *)data atIndex:(unsigned long)index;
 - (NSDictionary *)processCompoundData:(NSData *)data atIndex:(unsigned long)index;
 
-- (void)testData:(NSData *)data;
-
 @end
 
 @implementation Schematic
 
 @synthesize schemData = _schemData, masterCompound = _masterCompound, bytesConsumed = _bytesConsumed;
 
-- (id)init {
-    self = [super init];
-    if (self) {
-        _schemData = [[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"schemTest3" ofType:@"schematic"]];
-        //_schemData = [[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"bigtest" ofType:@"nbt"]];
-        //_schemData = [[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"test" ofType:@"schematic"]];
-        
-        //_schemData = [self.schemData gunzippedData];
-        //_masterCompound = [self createMasterCompoundFromData:self.schemData];
-        
-        //NSLog(@"object: %@", [self.masterCompound description]);
-        
-//        int32_t test = 32;
-//        test = CFSwapInt32HostToBig(test);
-//        NSLog(@"test: %i", test);
-//        
-//        NSData *data = [[NSData alloc] initWithBytes:&test length:4];
-//        unsigned char buffer[4];
-//        [data getBytes:&buffer length:4];
-//        for (int i=0; i<4; i++) {
-//            NSLog(@"test: %i", buffer[i]);
-//        }
-        
-//        NSLog(@"class: %@", NSStringFromClass([[[self.masterCompound objectForKey:@"Schematic"] objectForKey:@"Biomes"] class]));
-//        NSData *data = [[self.masterCompound objectForKey:@"Schematic"] objectForKey:@"Data"];
-//        if (data) {
-//            NSLog(@"len: %li", (unsigned long)data.length);
-//            unsigned char buffer[data.length];
-//            [data getBytes:&buffer length:data.length];
-//            for (int i=0; i<data.length; i++) {
-//                //NSLog(@"data: %i", buffer[i]);
-//            }
-//        }
-    }
-    return self;
-}
-
-- (void)createSchematicWithIndeces:(NSArray *)wool andSize:(CGSize)size {
-    NSLog(@"wool count: %li, width: %f, height: %f", (unsigned long)wool.count, size.width, size.height);
-    
+- (NSData *)createSchematicWithIndeces:(NSArray *)wool andSize:(CGSize)size {    
     NSMutableData *data = [[NSMutableData alloc] init];
     NSString *elementName = nil;
     int16_t nameLength = 0;
     int8_t tag = 0;
     int32_t listLength = 0;
     int32_t byteLength = 0;
-    NSEnumerator *reverseEnum = [wool reverseObjectEnumerator];
+    NSEnumerator *woolEnum = [wool objectEnumerator];
     
     //Main Compound
     tag = TAG_Compound;
@@ -177,7 +132,7 @@ static NSString *kBytesConsumedKey = @"bytesConsumed";
     [data appendBytes:&nameLength length:2];
     [data appendData:[elementName dataUsingEncoding:NSUTF8StringEncoding]];
     [data appendBytes:&byteLength length:4];
-    for (NSNumber *woolID in reverseEnum) {
+    for (NSNumber *woolID in woolEnum) {
         int8_t woolInt = [woolID intValue];
         [data appendBytes:&woolInt length:1];
     }
@@ -204,15 +159,7 @@ static NSString *kBytesConsumedKey = @"bytesConsumed";
     
     NSData *encodedData = [data gzippedData];
     
-    NSError *error = nil;
-    NSString *path=@"/Users/daltonclaybrook/Desktop/mcpixart.schematic";
-    [encodedData writeToFile:path options:NSDataWritingAtomic error:&error];
-    NSLog(@"Write returned error: %@", [error localizedDescription]);
-    
-    /****TESTER***/
-//    NSData *testData = [encodedData gunzippedData];
-//    NSDictionary *dict = [self createMasterCompoundFromData:testData];
-//    NSLog(@"object: %@", [dict description]);
+    return encodedData;
 }
 
 - (NSDictionary *)createMasterCompoundFromData:(NSData *)data {
@@ -225,7 +172,6 @@ static NSString *kBytesConsumedKey = @"bytesConsumed";
     
     NSString *key = [self readFirstString:[data subdataWithRange:NSMakeRange(1, data.length-1)]];
     id object = [self processCompoundData:data atIndex:1+2+key.length];
-    //id object = [self readFirstObject:[data subdataWithRange:NSMakeRange(1+2+key.length, data.length-(1+2+key.length))] andTag:YES orTagID:0];
     [dictionary setObject:object forKey:key];
     
     return dictionary;
@@ -250,7 +196,6 @@ static NSString *kBytesConsumedKey = @"bytesConsumed";
             [data getBytes:&newByte range:NSMakeRange(byteIndex, 1)];
             NSNumber *number = [NSNumber numberWithInt:newByte];
             [self setBytesConsumed:byteIndex+1];
-            //[number setValue:[NSNumber numberWithUnsignedLong:byteIndex+1] forKey:kBytesConsumedKey];
             return number;
         }
         case TAG_Short: {
@@ -259,7 +204,6 @@ static NSString *kBytesConsumedKey = @"bytesConsumed";
             newShort = CFSwapInt16BigToHost(newShort);
             NSNumber *number = [NSNumber numberWithShort:newShort];
             [self setBytesConsumed:byteIndex+2];
-            //[number setValue:[NSNumber numberWithUnsignedLong:byteIndex+2] forKey:kBytesConsumedKey];
             return number;
         }
         case TAG_Int: {
@@ -268,7 +212,6 @@ static NSString *kBytesConsumedKey = @"bytesConsumed";
             newInt = CFSwapInt32BigToHost(newInt);
             NSNumber *number = [NSNumber numberWithInt:newInt];
             [self setBytesConsumed:byteIndex+4];
-            //[number setValue:[NSNumber numberWithUnsignedLong:byteIndex+4] forKey:kBytesConsumedKey];
             return number;
         }
         case TAG_Long: {
@@ -277,7 +220,6 @@ static NSString *kBytesConsumedKey = @"bytesConsumed";
             newLong = CFSwapInt64BigToHost(newLong);
             NSNumber *number = [NSNumber numberWithLong:newLong];
             [self setBytesConsumed:byteIndex+8];
-            //[number setValue:[NSNumber numberWithUnsignedLong:byteIndex+8] forKey:kBytesConsumedKey];
             return number;
         }
         case TAG_Float: {
@@ -286,7 +228,6 @@ static NSString *kBytesConsumedKey = @"bytesConsumed";
             float newFloat2 = NSSwapBigFloatToHost(newFloat);
             NSNumber *number = [NSNumber numberWithFloat:newFloat2];
             [self setBytesConsumed:byteIndex+4];
-            //[number setValue:[NSNumber numberWithUnsignedLong:byteIndex+4] forKey:kBytesConsumedKey];
             return number;
         }
         case TAG_Double: {
@@ -295,7 +236,6 @@ static NSString *kBytesConsumedKey = @"bytesConsumed";
             double newDouble2 = NSSwapBigDoubleToHost(newDouble);
             NSNumber *number = [NSNumber numberWithDouble:newDouble2];
             [self setBytesConsumed:byteIndex+8];
-            //[number setValue:[NSNumber numberWithUnsignedLong:byteIndex+8] forKey:kBytesConsumedKey];
             return number;
         }
         case TAG_Byte_Array: {
@@ -304,32 +244,25 @@ static NSString *kBytesConsumedKey = @"bytesConsumed";
             byteArraySize = CFSwapInt32BigToHost(byteArraySize);
             NSData *byteArray = [data subdataWithRange:NSMakeRange(byteIndex+4, byteArraySize)];
             [self setBytesConsumed:byteIndex+4+byteArraySize];
-            //[byteArray setValue:[NSNumber numberWithUnsignedLong:byteIndex+2+byteArraySize] forKey:kBytesConsumedKey];
             return byteArray;
         }
         case TAG_String: {
             NSString *newString = [self readFirstString:[data subdataWithRange:NSMakeRange(byteIndex, data.length-byteIndex)]];
-            //NSString *newString = [self readStringAtIndex:byteIndex];
             [self setBytesConsumed:byteIndex+newString.length+2];
-            //[newString setValue:[NSNumber numberWithUnsignedLong:byteIndex+newString.length] forKey:kBytesConsumedKey];
             return newString;
         }
         case TAG_List: {
             NSArray *list = [self processListData:data atIndex:byteIndex];
-            //NSNumber *bytesConsumed = [list valueForKey:kBytesConsumedKey];
-            //[list setValue:[NSNumber numberWithUnsignedLong:bytesConsumed.unsignedLongValue+byteIndex] forKey:kBytesConsumedKey];
             self.bytesConsumed+=byteIndex;
             return list;
         }
         case TAG_Compound: {
             NSDictionary *compound = [self processCompoundData:data atIndex:byteIndex];
-            //NSNumber *bytesConsumed = [compound valueForKey:kBytesConsumedKey];
-            //[compound setValue:[NSNumber numberWithUnsignedLong:bytesConsumed.unsignedLongValue+byteIndex] forKey:kBytesConsumedKey];
             self.bytesConsumed+=byteIndex;
             return compound;
         }
         case TAG_Int_Array: {
-            NSLog(@"tag int array");
+            NSLog(@"TAG_Int_Array. Will add support later.");
             return nil;
         }
         default: {
@@ -347,7 +280,6 @@ static NSString *kBytesConsumedKey = @"bytesConsumed";
     unsigned char stringBuffer[stringLen];
     [data getBytes:&stringBuffer range:NSMakeRange(2, stringLen)];
     NSString *name = [[NSString alloc] initWithBytes:&stringBuffer length:stringLen encoding:NSUTF8StringEncoding];
-    NSLog(@"name: %@", name);
     
     return name;
 }
@@ -397,14 +329,6 @@ static NSString *kBytesConsumedKey = @"bytesConsumed";
     }
     
     return compound;
-}
-
-- (void)testData:(NSData *)data {
-    unsigned char buffer[data.length];
-    [data getBytes:&buffer length:data.length];
-    for (int i=0; i<30; i++) {
-        NSLog(@"test: %i", buffer[i]);
-    }
 }
 
 @end

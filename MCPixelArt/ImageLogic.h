@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "Schematic.h"
+#import "WoolImage.h"
 
 @interface ImageLogic : NSObject
 
 @property (nonatomic, strong) NSImage *image;
 @property (nonatomic, readonly) CGFloat aspectRatio;
 
-- (NSImage *)processImageWithSize:(CGSize)size;
+- (WoolImage *)processImageWithSize:(CGSize)size;
 
 @end
