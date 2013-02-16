@@ -25,7 +25,7 @@
 
 @synthesize schemData = _schemData, masterCompound = _masterCompound, bytesConsumed = _bytesConsumed;
 
-- (NSData *)createSchematicWithIndeces:(NSArray *)wool andSize:(CGSize)size {    
+- (NSData *)createSchematicWithIndeces:(NSArray *)wool andSize:(CGSize)size replacingWhiteWool:(BOOL)replace {    
     NSMutableData *data = [[NSMutableData alloc] init];
     NSString *elementName = nil;
     int16_t nameLength = 0;
@@ -149,8 +149,12 @@
     [data appendData:[elementName dataUsingEncoding:NSUTF8StringEncoding]];
     [data appendBytes:&byteLength length:4];
     for (int i=0; i<wool.count; i++) {
-        int8_t woolInt = 35;
-        [data appendBytes:&woolInt length:1];
+        int8_t woolID = [[wool objectAtIndex:i] intValue];
+        int8_t blockID = 35;
+        if ((replace == YES) && (woolID == 0)) {
+            blockID = 0;
+        }
+        [data appendBytes:&blockID length:1];
     }
     
     //End

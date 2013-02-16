@@ -28,6 +28,6 @@ enum {
 
 @property (nonatomic, strong) NSData *schemData;
 
-- (NSData *)createSchematicWithIndeces:(NSArray *)wool andSize:(CGSize)size;
+- (NSData *)createSchematicWithIndeces:(NSArray *)wool andSize:(CGSize)size replacingWhiteWool:(BOOL)replace;
 
 @end

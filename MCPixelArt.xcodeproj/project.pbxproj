@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7574752316CEBB3C00C68060 /* PixelationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7574752216CEBB3C00C68060 /* PixelationView.m */; };
 		7574752616CEC5E100C68060 /* WoolImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7574752516CEC5E100C68060 /* WoolImage.m */; };
+		7574752B16CEEFBD00C68060 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7574752A16CEEFBD00C68060 /* QuartzCore.framework */; };
 		758C4A9316CC6B5900D737C7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758C4A9216CC6B5900D737C7 /* Cocoa.framework */; };
 		758C4A9D16CC6B5900D737C7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 758C4A9B16CC6B5900D737C7 /* InfoPlist.strings */; };
 		758C4A9F16CC6B5900D737C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 758C4A9E16CC6B5900D737C7 /* main.m */; };
@@ -27,6 +28,7 @@
 		7574752216CEBB3C00C68060 /* PixelationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PixelationView.m; sourceTree = "<group>"; };
 		7574752416CEC5E100C68060 /* WoolImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoolImage.h; sourceTree = "<group>"; };
 		7574752516CEC5E100C68060 /* WoolImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoolImage.m; sourceTree = "<group>"; };
+		7574752A16CEEFBD00C68060 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		758C4A8F16CC6B5900D737C7 /* MCPixelArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCPixelArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		758C4A9216CC6B5900D737C7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		758C4A9516CC6B5900D737C7 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7574752B16CEEFBD00C68060 /* QuartzCore.framework in Frameworks */,
 				75AD195916CCA5320056EFEF /* libz.dylib in Frameworks */,
 				758C4A9316CC6B5900D737C7 /* Cocoa.framework in Frameworks */,
 			);
@@ -118,6 +121,7 @@
 		758C4A9116CC6B5900D737C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7574752A16CEEFBD00C68060 /* QuartzCore.framework */,
 				75AD195816CCA5320056EFEF /* libz.dylib */,
 				758C4A9216CC6B5900D737C7 /* Cocoa.framework */,
 				758C4A9416CC6B5900D737C7 /* Other Frameworks */,
