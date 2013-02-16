@@ -40,6 +40,7 @@
 - (NSUInteger)woolIndexFromTrueColor:(NSColor *)color {
     CGFloat average = MAXFLOAT;
     NSUInteger closestIndex = 0;
+    if (color.alphaComponent < 1.0f) return 0; //White Wool
     
     for (int i=0; i<self.woolArray.count; i++) {
         NSColor *woolColor = [self.woolArray objectAtIndex:i];
