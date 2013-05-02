@@ -8,9 +8,21 @@
 
 #import "MCWoolColors.h"
 
+@interface MCWoolColors ()
+
+@property (nonatomic, strong) NSColorSpace *labColorSpace;
+
+- (CGColorSpaceRef)labCGColorSpace;
+- (CGFloat)oldCompare:(NSColor *)color1 toColor:(NSColor *)color2;
+- (CGFloat)compare:(NSColor *)color1 toColor:(NSColor *)color2;
+- (CGFloat)hsbCompare:(NSColor *)color1 toColor:(NSColor *)color2;
+- (CGFloat)cmykCompare:(NSColor *)color1 toColor:(NSColor *)color2;
+
+@end
+
 @implementation MCWoolColors
 
-@synthesize woolArray = _woolArray;
+@synthesize woolArray = _woolArray, labColorSpace = _labColorSpace;
 
 - (id)init {
     self = [super init];
@@ -33,6 +45,9 @@
                         [NSColor colorWithCalibratedRed:150.0f/255.0f green:52.0f/255.0f blue:48.0f/255.0f alpha:1.0f],         //Red           14
                         [NSColor colorWithCalibratedRed:25.0f/255.0f green:22.0f/255.0f blue:22.0f/255.0f alpha:1.0f],          //Black         15
                         nil];
+        CGColorSpaceRef labCGColorSpace = [self labCGColorSpace];
+        _labColorSpace = [[NSColorSpace alloc] initWithCGColorSpace:labCGColorSpace];
+        CGColorSpaceRelease(labCGColorSpace);
     }
     return self;
 }
@@ -44,10 +59,18 @@
     
     for (int i=0; i<self.woolArray.count; i++) {
         NSColor *woolColor = [self.woolArray objectAtIndex:i];
-        CGFloat redDif = fabsf(woolColor.redComponent-color.redComponent);
-        CGFloat greenDif = fabsf(woolColor.greenComponent-color.greenComponent);
-        CGFloat blueDif = fabsf(woolColor.blueComponent-color.blueComponent);
-        CGFloat newAvg = (redDif + greenDif + blueDif)/3.0f;
+#if 1
+//        CGFloat redDif = fabsf(woolColor.redComponent-color.redComponent);
+//        CGFloat greenDif = fabsf(woolColor.greenComponent-color.greenComponent);
+//        CGFloat blueDif = fabsf(woolColor.blueComponent-color.blueComponent);
+//        CGFloat newAvg = (redDif + greenDif + blueDif)/3.0f;
+        
+        //CGFloat newAvg = [self oldCompare:woolColor toColor:color];
+        //CGFloat newAvg = [self hsbCompare:woolColor toColor:color];
+        CGFloat newAvg = [self cmykCompare:woolColor toColor:color];
+#else
+        CGFloat newAvg = [self compare:woolColor toColor:color];
+#endif
         if (newAvg<average) {
             average = newAvg;
             closestIndex = i;
@@ -55,6 +78,48 @@
     }
 
     return closestIndex;
+}
+
+#pragma mark Private Methods
+
+- (CGColorSpaceRef)labCGColorSpace {
+    const CGFloat whitePoint[3] = {0.9642, 1.0, 0.8249};
+    const CGFloat blackPoint[3] = {0.0, 0.0, 0.0};
+    const CGFloat range[4] = {-128.0, 128.0, -128.0, 128.0};
+    CGColorSpaceRef labColorSpace = CGColorSpaceCreateLab (whitePoint, blackPoint, range);
+    return labColorSpace;
+}
+
+- (CGFloat)oldCompare:(NSColor *)color1 toColor:(NSColor *)color2 {
+    CGFloat difference = sqrtf(powf((color2.redComponent-color1.redComponent), 2.0f) + powf((color2.greenComponent-color1.greenComponent), 2.0f) + powf((color2.blueComponent-color1.blueComponent), 2.0f));
+    return difference;
+}
+
+- (CGFloat)compare:(NSColor *)color1 toColor:(NSColor *)color2 {
+    //CGColorSpaceRef labCGColorSpace = [self labColorSpace];
+    //NSColorSpace *labColorSpace = [[NSColorSpace alloc] initWithCGColorSpace:labCGColorSpace];
+    CGColorRef labColor1 = [color1 colorUsingColorSpace:self.labColorSpace].CGColor;
+    CGColorRef labColor2 = [color2 colorUsingColorSpace:self.labColorSpace].CGColor;
+    const CGFloat *color1Components = CGColorGetComponents(labColor1);
+    const CGFloat *color2Components = CGColorGetComponents(labColor2);
+    
+    CGFloat difference = sqrtf(powf((color2Components[0]-color1Components[0]), 2.0f) + powf((color2Components[1]-color1Components[1]), 2.0f) + powf((color2Components[2]-color1Components[2]), 2.0f));
+    //CGColorSpaceRelease(labCGColorSpace);
+    
+    return difference;
+}
+
+- (CGFloat)hsbCompare:(NSColor *)color1 toColor:(NSColor *)color2 {
+    CGFloat difference = sqrtf(powf((color2.hueComponent-color1.hueComponent), 2.0f) + powf((color2.saturationComponent-color1.saturationComponent), 2.0f) + powf((color2.brightnessComponent-color1.brightnessComponent), 2.0f));
+    return difference;
+}
+
+- (CGFloat)cmykCompare:(NSColor *)color1 toColor:(NSColor *)color2 {
+    NSColor *cmykColor1 = [color1 colorUsingColorSpace:[NSColorSpace genericCMYKColorSpace]];
+    NSColor *cmykColor2 = [color2 colorUsingColorSpace:[NSColorSpace genericCMYKColorSpace]];
+    
+    CGFloat difference = sqrtf(powf((cmykColor2.cyanComponent-cmykColor1.cyanComponent), 2.0f) + powf((cmykColor2.magentaComponent-cmykColor1.magentaComponent), 2.0f) + powf((cmykColor2.yellowComponent-cmykColor1.yellowComponent), 2.0f) + powf((cmykColor2.blackComponent-cmykColor1.blackComponent), 2.0f));
+    return difference;
 }
 
 @end

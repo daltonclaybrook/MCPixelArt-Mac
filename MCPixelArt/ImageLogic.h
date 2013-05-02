@@ -16,5 +16,6 @@
 @property (nonatomic, readonly) CGFloat aspectRatio;
 
 - (WoolImage *)processImageWithSize:(CGSize)size;
+- (WoolImage *)ditheredImageWithSize:(CGSize)size;
 
 @end

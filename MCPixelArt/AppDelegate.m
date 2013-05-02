@@ -37,6 +37,8 @@
     return YES;
 }
 
+#pragma mark Public Instance Methods
+
 - (IBAction)imageChanged:(id)sender {
     if (self.dropImageLabel.superview) [self.dropImageLabel removeFromSuperview];
     [self.imageLogic setImage:[(NSImageView *)sender image]];
@@ -52,7 +54,8 @@
     [self.previewButton setEnabled:NO];
     
     dispatch_async (dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
-        self.woolImage = [self.imageLogic processImageWithSize:CGSizeMake((int)self.slider.floatValue, (int)(self.slider.floatValue/self.imageLogic.aspectRatio))];
+        //self.woolImage = [self.imageLogic processImageWithSize:CGSizeMake((int)self.slider.floatValue, (int)(self.slider.floatValue/self.imageLogic.aspectRatio))];
+        self.woolImage = [self.imageLogic ditheredImageWithSize:CGSizeMake((int)self.slider.floatValue, (int)(self.slider.floatValue/self.imageLogic.aspectRatio))];
         
         dispatch_async (dispatch_get_main_queue (), ^(void) {
             [self.loadingSpinner stopAnimation:self];

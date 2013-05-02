@@ -16,15 +16,15 @@
 @property (nonatomic, strong) ImageLogic *imageLogic;
 @property (nonatomic, strong) Schematic *schematic;
 @property (assign) IBOutlet NSWindow *window;
-@property (weak) IBOutlet NSTextField *sizeField;
-@property (weak) IBOutlet NSSlider *slider;
-@property (weak) IBOutlet NSButton *previewButton;
-@property (weak) IBOutlet NSTextField *dropImageLabel;
-@property (weak) IBOutlet NSProgressIndicator *loadingSpinner;
+@property (unsafe_unretained) IBOutlet NSTextField *sizeField;
+@property (unsafe_unretained) IBOutlet NSSlider *slider;
+@property (unsafe_unretained) IBOutlet NSButton *previewButton;
+@property (strong) IBOutlet NSTextField *dropImageLabel;
+@property (unsafe_unretained) IBOutlet NSProgressIndicator *loadingSpinner;
 
-@property (weak) IBOutlet NSPanel *previewImagePanel;
+@property (unsafe_unretained) IBOutlet NSPanel *previewImagePanel;
 @property (nonatomic, strong) IBOutlet PixelationView *previewImageView;
-@property (weak) IBOutlet NSButton *airCheckBox;
+@property (unsafe_unretained) IBOutlet NSButton *airCheckBox;
 @property (nonatomic, strong) WoolImage *woolImage;
 
 - (IBAction)imageChanged:(id)sender;

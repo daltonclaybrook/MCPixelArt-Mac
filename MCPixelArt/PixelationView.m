@@ -60,8 +60,10 @@
     //method exists. If you know why and fix it, submit a pull request.
     
     if (self.image == nil) return YES;
-//    CGFloat difference = fabsf((self.image.size.width/self.image.size.height) - (frame.size.width/frame.size.height));
-    if ((self.image.size.width/self.image.size.height) == (frame.size.width/frame.size.height)) {
+    CGFloat difference = fabsf((self.image.size.width/self.image.size.height) - (frame.size.width/frame.size.height));
+    //if ((self.image.size.width/self.image.size.height) == (frame.size.width/frame.size.height)) {
+    NSLog(@"dif: %f", difference);
+    if (difference < 0.001) {
         return YES;
     }
     return NO;
