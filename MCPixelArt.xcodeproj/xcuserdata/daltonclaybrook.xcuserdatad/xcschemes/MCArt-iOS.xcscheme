@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "758C4A8E16CC6B5900D737C7"
-               BuildableName = "MCPixelArt.app"
-               BlueprintName = "MCPixelArt"
+               BlueprintIdentifier = "75729D8E1DC3BC220094B2E8"
+               BuildableName = "MCArt-iOS.app"
+               BlueprintName = "MCArt-iOS"
                ReferencedContainer = "container:MCPixelArt.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "758C4A8E16CC6B5900D737C7"
-            BuildableName = "MCPixelArt.app"
-            BlueprintName = "MCPixelArt"
+            BlueprintIdentifier = "75729D8E1DC3BC220094B2E8"
+            BuildableName = "MCArt-iOS.app"
+            BlueprintName = "MCArt-iOS"
             ReferencedContainer = "container:MCPixelArt.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -55,9 +55,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "758C4A8E16CC6B5900D737C7"
-            BuildableName = "MCPixelArt.app"
-            BlueprintName = "MCPixelArt"
+            BlueprintIdentifier = "75729D8E1DC3BC220094B2E8"
+            BuildableName = "MCArt-iOS.app"
+            BlueprintName = "MCArt-iOS"
             ReferencedContainer = "container:MCPixelArt.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -74,9 +74,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "758C4A8E16CC6B5900D737C7"
-            BuildableName = "MCPixelArt.app"
-            BlueprintName = "MCPixelArt"
+            BlueprintIdentifier = "75729D8E1DC3BC220094B2E8"
+            BuildableName = "MCArt-iOS.app"
+            BlueprintName = "MCArt-iOS"
             ReferencedContainer = "container:MCPixelArt.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
