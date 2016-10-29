@@ -6,81 +6,24 @@
 //  Copyright (c) 2013 Claybrook Software, LLC. All rights reserved.
 //
 
-#import "ImageLogic.h"
+#import "MCImageProcessor.h"
 #import "MCWoolColors.h"
 
-@interface ImageLogic ()
+@implementation MCImageProcessor
 
-@property (nonatomic, strong) MCWoolColors *woolColors;
-
-- (CGContextRef)createARGBBitmapContextFromSize:(NSSize)size;
--(WoolImage *)createImageFromArray:(unsigned char *)myBuffer andRect:(CGRect)rect;
-+ (int)indexFromPoint:(CGPoint)point size:(NSSize)size;
-
-@end
-
-@implementation ImageLogic
-
-@synthesize image = _image, aspectRatio = _aspectRatio, woolColors = _woolColors;
-
-- (id)init {
+- (instancetype)initWithColorTransformer:(id<MCColorTransformer>)transformer
+{
     self = [super init];
-    if (self) {
-        _woolColors = [[MCWoolColors alloc] init];
+    if (self)
+    {
+        _colorTransformer = transformer;
     }
     return self;
 }
 
-- (void)setImage:(NSImage *)image {
-    _image = image;
-    _aspectRatio = image.size.width/image.size.height;
-}
-
-- (WoolImage *)processImageWithSize:(CGSize)size {
-    CGImageSourceRef source = CGImageSourceCreateWithData((__bridge CFDataRef)[self.image TIFFRepresentation], NULL);
-    CGImageRef cgImage =  CGImageSourceCreateImageAtIndex(source, 0, NULL);
-    
-    CGContextRef context = [self createARGBBitmapContextFromSize:size];
-    if (context == NULL) return nil;
-    
-    CGContextDrawImage(context, CGRectMake(0, 0, size.width, size.height), cgImage);
-    
-    unsigned char *data = CGBitmapContextGetData(context);
-    NSMutableArray *woolIndeces = [NSMutableArray array];
-    CGContextRelease(context);
-    
-    if (data != NULL) {
-        for (int i=0; i<size.width*size.height*4; i+=4) {
-            NSColor *oldColor = [NSColor colorWithCalibratedRed:data[i+1]/255.0 green:data[i+2]/255.0 blue:data[i+3]/255.0 alpha:data[i]/255.0];
-            NSUInteger index = [self.woolColors woolIndexFromTrueColor:oldColor];
-            NSColor *newColor = [self.woolColors.woolArray objectAtIndex:index];
-            [woolIndeces addObject:[NSNumber numberWithInteger:index]];
-            
-            data[i] = 255;
-            data[i+1] = (int)(newColor.redComponent * 255.0);
-            data[i+2] = (int)(newColor.greenComponent * 255.0);
-            data[i+3] = (int)(newColor.blueComponent * 255.0);
-        }
-    } else {
-        return nil;
-    }
-    
-    for (int i=0; i<floorf((woolIndeces.count/2.0)); i++) {
-        //Reverse array
-        [woolIndeces exchangeObjectAtIndex:i withObjectAtIndex:woolIndeces.count-1-i];
-    }
-    
-    WoolImage *newImage = [self createImageFromArray:data andRect:NSMakeRect(0, 0, size.width, size.height)];
-    [newImage setWoolData:woolIndeces];
-    free(data);
-    
-    return newImage;
-}
-
-- (WoolImage *)ditheredImageWithSize:(CGSize)size {
-    CGImageSourceRef source = CGImageSourceCreateWithData((__bridge CFDataRef)[self.image TIFFRepresentation], NULL);
-    CGImageRef cgImage =  CGImageSourceCreateImageAtIndex(source, 0, NULL);
-    
+- (WoolImage *)processImage:(id<MCImage>)image size:(CGSize)size
+{
+    CGImageRef cgImage = [image toCGImage];
     CGContextRef context = [self createARGBBitmapContextFromSize:size];
     if (context == NULL) return nil;
     
@@ -97,7 +40,7 @@
                 int modX = (leftToRight) ? x : (int)(size.width-(x+1));
                 int constant = (leftToRight) ? 1 : -1;
                 
-                int index = [ImageLogic indexFromPoint:CGPointMake(x, y) size:size];
+                int index = [MCImageProcessor indexFromPoint:CGPointMake(x, y) size:size];
                 NSColor *oldColor = [NSColor colorWithCalibratedRed:data[index+1]/255.0 green:data[index+2]/255.0 blue:data[index+3]/255.0 alpha:data[index]/255.0];
                 NSUInteger woolIndex = [self.woolColors woolIndexFromTrueColor:oldColor];
                 NSColor *newColor = [self.woolColors.woolArray objectAtIndex:woolIndex];
@@ -115,12 +58,12 @@
                 };
                 
                 int ditherIndeces[] = {
-                    [ImageLogic indexFromPoint:CGPointMake(modX+constant, y) size:size],
-                    [ImageLogic indexFromPoint:CGPointMake(modX+(constant*2), y+1) size:size],
-                    [ImageLogic indexFromPoint:CGPointMake(modX-constant, y+1) size:size],
-                    [ImageLogic indexFromPoint:CGPointMake(modX, y+1) size:size],
-                    [ImageLogic indexFromPoint:CGPointMake(modX+constant, y+1) size:size],
-                    [ImageLogic indexFromPoint:CGPointMake(modX, y+2) size:size]
+                    [MCImageProcessor indexFromPoint:CGPointMake(modX+constant, y) size:size],
+                    [MCImageProcessor indexFromPoint:CGPointMake(modX+(constant*2), y+1) size:size],
+                    [MCImageProcessor indexFromPoint:CGPointMake(modX-constant, y+1) size:size],
+                    [MCImageProcessor indexFromPoint:CGPointMake(modX, y+1) size:size],
+                    [MCImageProcessor indexFromPoint:CGPointMake(modX+constant, y+1) size:size],
+                    [MCImageProcessor indexFromPoint:CGPointMake(modX, y+2) size:size]
                 };
                 
                 for (int i=0; i<6; i++) {

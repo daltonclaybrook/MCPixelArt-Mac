@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@import CoreGraphics;
 #import "NSData+GZIP.h"
 
 enum {

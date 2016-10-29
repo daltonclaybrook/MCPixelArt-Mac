@@ -18,6 +18,10 @@ extension NSColor: Color {
     var blueValue: CGFloat {
         return blueComponent
     }
+
+    static func create(r: CGFloat, g: CGFloat, b: CGFloat) -> Self {
+        return self.init(red: r, green: g, blue: b, alpha: 1.0)
+    }
     
     func differenceByComparring(to color: NSColor) -> CGFloat {
         let _color1 = self.usingColorSpace(NSColorSpace.genericCMYK)

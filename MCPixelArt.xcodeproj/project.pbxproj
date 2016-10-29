@@ -12,15 +12,12 @@
 		75729D971DC3BC220094B2E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75729D951DC3BC220094B2E8 /* Main.storyboard */; };
 		75729D991DC3BC220094B2E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75729D981DC3BC220094B2E8 /* Assets.xcassets */; };
 		75729D9C1DC3BC220094B2E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75729D9A1DC3BC220094B2E8 /* LaunchScreen.storyboard */; };
-		75729DA31DC3E4B60094B2E8 /* ImageLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 758C4AB016CC6D9700D737C7 /* ImageLogic.m */; };
-		75729DA41DC3E4BA0094B2E8 /* MCWoolColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 758C4AB316CC765C00D737C7 /* MCWoolColors.m */; };
 		75729DA51DC3E4C00094B2E8 /* Schematic.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AD195116CC9DEF0056EFEF /* Schematic.m */; };
 		75729DAD1DC3E8CC0094B2E8 /* ColorTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75729DAC1DC3E8CC0094B2E8 /* ColorTransformer.swift */; };
 		75729DAE1DC3E96D0094B2E8 /* ColorTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75729DAC1DC3E8CC0094B2E8 /* ColorTransformer.swift */; };
 		75729DB01DC3E9870094B2E8 /* NSColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75729DAF1DC3E9870094B2E8 /* NSColor+Additions.swift */; };
 		75729DB31DC3E9970094B2E8 /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75729DB11DC3E9940094B2E8 /* UIColor+Additions.swift */; };
 		7574752316CEBB3C00C68060 /* PixelationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7574752216CEBB3C00C68060 /* PixelationView.m */; };
-		7574752616CEC5E100C68060 /* WoolImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7574752516CEC5E100C68060 /* WoolImage.m */; };
 		7574752B16CEEFBD00C68060 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7574752A16CEEFBD00C68060 /* QuartzCore.framework */; };
 		758C4A9316CC6B5900D737C7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758C4A9216CC6B5900D737C7 /* Cocoa.framework */; };
 		758C4A9D16CC6B5900D737C7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 758C4A9B16CC6B5900D737C7 /* InfoPlist.strings */; };
@@ -28,11 +25,19 @@
 		758C4AA316CC6B5900D737C7 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 758C4AA116CC6B5900D737C7 /* Credits.rtf */; };
 		758C4AA616CC6B5900D737C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 758C4AA516CC6B5900D737C7 /* AppDelegate.m */; };
 		758C4AA916CC6B5900D737C7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 758C4AA716CC6B5900D737C7 /* MainMenu.xib */; };
-		758C4AB116CC6D9700D737C7 /* ImageLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 758C4AB016CC6D9700D737C7 /* ImageLogic.m */; };
+		758C4AB116CC6D9700D737C7 /* MCImageProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 758C4AB016CC6D9700D737C7 /* MCImageProcessor.m */; };
 		758C4AB416CC765C00D737C7 /* MCWoolColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 758C4AB316CC765C00D737C7 /* MCWoolColors.m */; };
 		75AD195216CC9DEF0056EFEF /* Schematic.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AD195116CC9DEF0056EFEF /* Schematic.m */; };
 		75AD195916CCA5320056EFEF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 75AD195816CCA5320056EFEF /* libz.dylib */; };
 		75AD196116CCAE740056EFEF /* NSData+GZIP.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AD196016CCAE740056EFEF /* NSData+GZIP.m */; };
+		BE208ADC1DC4F8B900F45B8A /* NSImage+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE208ADB1DC4F8B900F45B8A /* NSImage+Additions.swift */; };
+		BE208ADD1DC4F8C800F45B8A /* UIImage+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE208AD91DC4F8AF00F45B8A /* UIImage+Additions.swift */; };
+		BE208ADF1DC536C500F45B8A /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE208ADE1DC536C500F45B8A /* ImageProcessor.swift */; };
+		BE208AE11DC5387700F45B8A /* WoolImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE208AE01DC5387700F45B8A /* WoolImage.swift */; };
+		BE208AE21DC5501F00F45B8A /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE208ADE1DC536C500F45B8A /* ImageProcessor.swift */; };
+		BE208AE31DC5502200F45B8A /* WoolImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE208AE01DC5387700F45B8A /* WoolImage.swift */; };
+		BE208AE41DC5512900F45B8A /* NSData+GZIP.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AD196016CCAE740056EFEF /* NSData+GZIP.m */; };
+		BE208AE61DC5515D00F45B8A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BE208AE51DC5515D00F45B8A /* libz.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,8 +54,6 @@
 		75729DB11DC3E9940094B2E8 /* UIColor+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
 		7574752116CEBB3C00C68060 /* PixelationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixelationView.h; sourceTree = "<group>"; };
 		7574752216CEBB3C00C68060 /* PixelationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PixelationView.m; sourceTree = "<group>"; };
-		7574752416CEC5E100C68060 /* WoolImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoolImage.h; sourceTree = "<group>"; };
-		7574752516CEC5E100C68060 /* WoolImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoolImage.m; sourceTree = "<group>"; };
 		7574752A16CEEFBD00C68060 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		758C4A8F16CC6B5900D737C7 /* MCPixelArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCPixelArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		758C4A9216CC6B5900D737C7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -65,8 +68,8 @@
 		758C4AA416CC6B5900D737C7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		758C4AA516CC6B5900D737C7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		758C4AA816CC6B5900D737C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		758C4AAF16CC6D9700D737C7 /* ImageLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLogic.h; sourceTree = "<group>"; };
-		758C4AB016CC6D9700D737C7 /* ImageLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageLogic.m; sourceTree = "<group>"; };
+		758C4AAF16CC6D9700D737C7 /* MCImageProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCImageProcessor.h; sourceTree = "<group>"; };
+		758C4AB016CC6D9700D737C7 /* MCImageProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCImageProcessor.m; sourceTree = "<group>"; };
 		758C4AB216CC765C00D737C7 /* MCWoolColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCWoolColors.h; sourceTree = "<group>"; };
 		758C4AB316CC765C00D737C7 /* MCWoolColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCWoolColors.m; sourceTree = "<group>"; };
 		75AD195016CC9DEF0056EFEF /* Schematic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schematic.h; sourceTree = "<group>"; };
@@ -74,6 +77,11 @@
 		75AD195816CCA5320056EFEF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		75AD195F16CCAE740056EFEF /* NSData+GZIP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+GZIP.h"; sourceTree = "<group>"; };
 		75AD196016CCAE740056EFEF /* NSData+GZIP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+GZIP.m"; sourceTree = "<group>"; };
+		BE208AD91DC4F8AF00F45B8A /* UIImage+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Additions.swift"; sourceTree = "<group>"; };
+		BE208ADB1DC4F8B900F45B8A /* NSImage+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+Additions.swift"; sourceTree = "<group>"; };
+		BE208ADE1DC536C500F45B8A /* ImageProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
+		BE208AE01DC5387700F45B8A /* WoolImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WoolImage.swift; sourceTree = "<group>"; };
+		BE208AE51DC5515D00F45B8A /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.1.sdk/usr/lib/libz.tbd; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE208AE61DC5515D00F45B8A /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,17 +131,19 @@
 		7574752716CECC8600C68060 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				758C4AAF16CC6D9700D737C7 /* ImageLogic.h */,
-				758C4AB016CC6D9700D737C7 /* ImageLogic.m */,
+				758C4AAF16CC6D9700D737C7 /* MCImageProcessor.h */,
+				758C4AB016CC6D9700D737C7 /* MCImageProcessor.m */,
 				758C4AB216CC765C00D737C7 /* MCWoolColors.h */,
 				758C4AB316CC765C00D737C7 /* MCWoolColors.m */,
 				75AD195016CC9DEF0056EFEF /* Schematic.h */,
 				75AD195116CC9DEF0056EFEF /* Schematic.m */,
-				7574752416CEC5E100C68060 /* WoolImage.h */,
-				7574752516CEC5E100C68060 /* WoolImage.m */,
 				75729DAC1DC3E8CC0094B2E8 /* ColorTransformer.swift */,
 				75729DAF1DC3E9870094B2E8 /* NSColor+Additions.swift */,
 				75729DB11DC3E9940094B2E8 /* UIColor+Additions.swift */,
+				BE208ADB1DC4F8B900F45B8A /* NSImage+Additions.swift */,
+				BE208AD91DC4F8AF00F45B8A /* UIImage+Additions.swift */,
+				BE208ADE1DC536C500F45B8A /* ImageProcessor.swift */,
+				BE208AE01DC5387700F45B8A /* WoolImage.swift */,
 			);
 			name = Model;
 			path = MCPixelArt;
@@ -180,6 +191,7 @@
 		758C4A9116CC6B5900D737C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BE208AE51DC5515D00F45B8A /* libz.tbd */,
 				7574752A16CEEFBD00C68060 /* QuartzCore.framework */,
 				75AD195816CCA5320056EFEF /* libz.dylib */,
 				758C4A9216CC6B5900D737C7 /* Cocoa.framework */,
@@ -327,11 +339,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				75729DA51DC3E4C00094B2E8 /* Schematic.m in Sources */,
-				75729DA41DC3E4BA0094B2E8 /* MCWoolColors.m in Sources */,
 				75729D941DC3BC220094B2E8 /* ViewController.swift in Sources */,
 				75729DAE1DC3E96D0094B2E8 /* ColorTransformer.swift in Sources */,
-				75729DA31DC3E4B60094B2E8 /* ImageLogic.m in Sources */,
+				BE208ADD1DC4F8C800F45B8A /* UIImage+Additions.swift in Sources */,
+				BE208AE21DC5501F00F45B8A /* ImageProcessor.swift in Sources */,
 				75729D921DC3BC220094B2E8 /* AppDelegate.swift in Sources */,
+				BE208AE31DC5502200F45B8A /* WoolImage.swift in Sources */,
+				BE208AE41DC5512900F45B8A /* NSData+GZIP.m in Sources */,
 				75729DB31DC3E9970094B2E8 /* UIColor+Additions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,14 +356,16 @@
 			files = (
 				758C4A9F16CC6B5900D737C7 /* main.m in Sources */,
 				758C4AA616CC6B5900D737C7 /* AppDelegate.m in Sources */,
-				758C4AB116CC6D9700D737C7 /* ImageLogic.m in Sources */,
+				758C4AB116CC6D9700D737C7 /* MCImageProcessor.m in Sources */,
+				BE208ADC1DC4F8B900F45B8A /* NSImage+Additions.swift in Sources */,
 				758C4AB416CC765C00D737C7 /* MCWoolColors.m in Sources */,
 				75AD195216CC9DEF0056EFEF /* Schematic.m in Sources */,
+				BE208AE11DC5387700F45B8A /* WoolImage.swift in Sources */,
 				75AD196116CCAE740056EFEF /* NSData+GZIP.m in Sources */,
 				75729DB01DC3E9870094B2E8 /* NSColor+Additions.swift in Sources */,
 				75729DAD1DC3E8CC0094B2E8 /* ColorTransformer.swift in Sources */,
 				7574752316CEBB3C00C68060 /* PixelationView.m in Sources */,
-				7574752616CEC5E100C68060 /* WoolImage.m in Sources */,
+				BE208ADF1DC536C500F45B8A /* ImageProcessor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,6 +595,7 @@
 				75729DA01DC3BC220094B2E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		758C4A8A16CC6B5900D737C7 /* Build configuration list for PBXProject "MCPixelArt" */ = {
 			isa = XCConfigurationList;
