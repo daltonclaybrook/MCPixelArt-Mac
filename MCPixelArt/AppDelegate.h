@@ -8,12 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 #import <QuartzCore/QuartzCore.h>
-#import "ImageLogic.h"
+#import "MCPixelArt-Swift.h"
 #import "PixelationView.h"
+#import "Schematic.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, NSTextFieldDelegate, NSOpenSavePanelDelegate>
 
-@property (nonatomic, strong) ImageLogic *imageLogic;
+@property (nonatomic, strong) MCMacImageProcessor *imageLogic;
 @property (nonatomic, strong) Schematic *schematic;
 @property (assign) IBOutlet NSWindow *window;
 @property (unsafe_unretained) IBOutlet NSTextField *sizeField;
@@ -25,7 +26,7 @@
 @property (unsafe_unretained) IBOutlet NSPanel *previewImagePanel;
 @property (nonatomic, strong) IBOutlet PixelationView *previewImageView;
 @property (unsafe_unretained) IBOutlet NSButton *airCheckBox;
-@property (nonatomic, strong) WoolImage *woolImage;
+@property (nonatomic, strong) MCWoolImage *woolImage;
 
 - (IBAction)imageChanged:(id)sender;
 - (IBAction)sliderChanged:(id)sender;

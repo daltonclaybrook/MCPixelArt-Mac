@@ -12,3 +12,21 @@ struct WoolImage {
     let image: Image
     let woolIndexes: [Int]
 }
+
+@objc class MCWoolImage: NSObject {
+    
+    init(woolImage: WoolImage) {
+        self.woolImage = woolImage
+    }
+    
+    private let woolImage: WoolImage
+    var image: Image {
+        return woolImage.image
+    }
+    var imageSize: CGSize {
+        return woolImage.image.size
+    }
+    var woolIndexes: [Int] {
+        return woolImage.woolIndexes
+    }
+}

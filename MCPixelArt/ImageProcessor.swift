@@ -9,7 +9,7 @@
 import Foundation
 import CoreGraphics
 
-class ImageProcessor<T:Color, U:Image> {
+class ImageProcessor<U:Image> {
     
     let transformer: ColorTransformer
     
@@ -33,7 +33,7 @@ class ImageProcessor<T:Color, U:Image> {
                 let oldR = CGFloat(data[index+1])/255.0
                 let oldG = CGFloat(data[index+2])/255.0
                 let oldB = CGFloat(data[index+3])/255.0
-                let color = T.create(r: oldR, g: oldG, b: oldB)
+                let color = Color(redValue: oldR, greenValue: oldG, blueValue: oldB)
                 let (newColor, colorIdx) = transformer.transform(color: color)
                 woolIndexes.insert(colorIdx, at: 0)
                 

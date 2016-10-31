@@ -10,7 +10,7 @@
 
 @interface AppDelegate ()
 
-- (void)animateMessage:(NSString *)message;
+@property (nonatomic, strong) NSImage *image;
 
 @end
 
@@ -26,7 +26,7 @@
     [self.slider sendActionOn:NSLeftMouseDraggedMask];
     
     if (self.imageLogic == nil) {
-        self.imageLogic = [[ImageLogic alloc] init];
+        self.imageLogic = [[MCMacImageProcessor alloc] init];
     }
     if (self.schematic == nil) {
         self.schematic = [[Schematic alloc] init];
@@ -41,12 +41,12 @@
 
 - (IBAction)imageChanged:(id)sender {
     if (self.dropImageLabel.superview) [self.dropImageLabel removeFromSuperview];
-    [self.imageLogic setImage:[(NSImageView *)sender image]];
+    self.image = [(NSImageView *)sender image];
     [self.previewButton setEnabled:YES];
     [self.slider setMinValue:10.0];
     [self.slider setFloatValue:10.0];
     [self sliderChanged:self.slider];
-    [self.slider setMaxValue:self.imageLogic.image.size.width];
+    [self.slider setMaxValue:self.image.size.width];
 }
 
 - (IBAction)preview:(id)sender {
@@ -55,7 +55,8 @@
     
     dispatch_async (dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
         //self.woolImage = [self.imageLogic processImageWithSize:CGSizeMake((int)self.slider.floatValue, (int)(self.slider.floatValue/self.imageLogic.aspectRatio))];
-        self.woolImage = [self.imageLogic ditheredImageWithSize:CGSizeMake((int)self.slider.floatValue, (int)(self.slider.floatValue/self.imageLogic.aspectRatio))];
+        
+        self.woolImage = [self.imageLogic processWithImage:self.image];
         
         dispatch_async (dispatch_get_main_queue (), ^(void) {
             [self.loadingSpinner stopAnimation:self];
@@ -76,7 +77,8 @@
 }
 
 - (IBAction)sliderChanged:(id)sender {
-    [self.sizeField setStringValue:[NSString stringWithFormat:@"%i x %i", (int)self.slider.floatValue, (int)(self.slider.floatValue/self.imageLogic.aspectRatio)]];
+    CGFloat ratio = self.image.size.width/self.image.size.height;
+    [self.sizeField setStringValue:[NSString stringWithFormat:@"%i x %i", (int)self.slider.floatValue, (int)(self.slider.floatValue/ratio)]];
 }
 
 - (IBAction)saveSchematic:(id)sender {
@@ -139,7 +141,7 @@
 
 - (BOOL)panel:(id)sender validateURL:(NSURL *)url error:(NSError **)outError {
     if (url) {
-        NSData *data = [self.schematic createSchematicWithIndeces:self.woolImage.woolData andSize:CGSizeMake(self.woolImage.size.width, self.woolImage.size.height) replacingWhiteWool:self.airCheckBox.state];
+        NSData *data = [self.schematic createSchematicWithIndeces:self.woolImage.woolIndexes andSize:CGSizeMake(self.woolImage.imageSize.width, self.woolImage.imageSize.height) replacingWhiteWool:self.airCheckBox.state];
         if (data) {
             if ([data writeToURL:url atomically:NO]) {
                 [self animateMessage:@"Success"];

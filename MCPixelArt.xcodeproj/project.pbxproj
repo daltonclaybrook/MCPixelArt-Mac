@@ -15,8 +15,6 @@
 		75729DA51DC3E4C00094B2E8 /* Schematic.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AD195116CC9DEF0056EFEF /* Schematic.m */; };
 		75729DAD1DC3E8CC0094B2E8 /* ColorTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75729DAC1DC3E8CC0094B2E8 /* ColorTransformer.swift */; };
 		75729DAE1DC3E96D0094B2E8 /* ColorTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75729DAC1DC3E8CC0094B2E8 /* ColorTransformer.swift */; };
-		75729DB01DC3E9870094B2E8 /* NSColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75729DAF1DC3E9870094B2E8 /* NSColor+Additions.swift */; };
-		75729DB31DC3E9970094B2E8 /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75729DB11DC3E9940094B2E8 /* UIColor+Additions.swift */; };
 		7574752316CEBB3C00C68060 /* PixelationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7574752216CEBB3C00C68060 /* PixelationView.m */; };
 		7574752B16CEEFBD00C68060 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7574752A16CEEFBD00C68060 /* QuartzCore.framework */; };
 		758C4A9316CC6B5900D737C7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758C4A9216CC6B5900D737C7 /* Cocoa.framework */; };
@@ -25,8 +23,6 @@
 		758C4AA316CC6B5900D737C7 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 758C4AA116CC6B5900D737C7 /* Credits.rtf */; };
 		758C4AA616CC6B5900D737C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 758C4AA516CC6B5900D737C7 /* AppDelegate.m */; };
 		758C4AA916CC6B5900D737C7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 758C4AA716CC6B5900D737C7 /* MainMenu.xib */; };
-		758C4AB116CC6D9700D737C7 /* MCImageProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 758C4AB016CC6D9700D737C7 /* MCImageProcessor.m */; };
-		758C4AB416CC765C00D737C7 /* MCWoolColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 758C4AB316CC765C00D737C7 /* MCWoolColors.m */; };
 		75AD195216CC9DEF0056EFEF /* Schematic.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AD195116CC9DEF0056EFEF /* Schematic.m */; };
 		75AD195916CCA5320056EFEF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 75AD195816CCA5320056EFEF /* libz.dylib */; };
 		75AD196116CCAE740056EFEF /* NSData+GZIP.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AD196016CCAE740056EFEF /* NSData+GZIP.m */; };
@@ -38,6 +34,7 @@
 		BE208AE31DC5502200F45B8A /* WoolImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE208AE01DC5387700F45B8A /* WoolImage.swift */; };
 		BE208AE41DC5512900F45B8A /* NSData+GZIP.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AD196016CCAE740056EFEF /* NSData+GZIP.m */; };
 		BE208AE61DC5515D00F45B8A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BE208AE51DC5515D00F45B8A /* libz.tbd */; };
+		BE208AE81DC5609B00F45B8A /* MCMacImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE208AE71DC5609B00F45B8A /* MCMacImageProcessor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +79,7 @@
 		BE208ADE1DC536C500F45B8A /* ImageProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
 		BE208AE01DC5387700F45B8A /* WoolImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WoolImage.swift; sourceTree = "<group>"; };
 		BE208AE51DC5515D00F45B8A /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.1.sdk/usr/lib/libz.tbd; sourceTree = DEVELOPER_DIR; };
+		BE208AE71DC5609B00F45B8A /* MCMacImageProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCMacImageProcessor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,12 +136,13 @@
 				75AD195016CC9DEF0056EFEF /* Schematic.h */,
 				75AD195116CC9DEF0056EFEF /* Schematic.m */,
 				75729DAC1DC3E8CC0094B2E8 /* ColorTransformer.swift */,
+				BE208ADE1DC536C500F45B8A /* ImageProcessor.swift */,
 				75729DAF1DC3E9870094B2E8 /* NSColor+Additions.swift */,
 				75729DB11DC3E9940094B2E8 /* UIColor+Additions.swift */,
 				BE208ADB1DC4F8B900F45B8A /* NSImage+Additions.swift */,
 				BE208AD91DC4F8AF00F45B8A /* UIImage+Additions.swift */,
-				BE208ADE1DC536C500F45B8A /* ImageProcessor.swift */,
 				BE208AE01DC5387700F45B8A /* WoolImage.swift */,
+				BE208AE71DC5609B00F45B8A /* MCMacImageProcessor.swift */,
 			);
 			name = Model;
 			path = MCPixelArt;
@@ -346,7 +345,6 @@
 				75729D921DC3BC220094B2E8 /* AppDelegate.swift in Sources */,
 				BE208AE31DC5502200F45B8A /* WoolImage.swift in Sources */,
 				BE208AE41DC5512900F45B8A /* NSData+GZIP.m in Sources */,
-				75729DB31DC3E9970094B2E8 /* UIColor+Additions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,13 +354,11 @@
 			files = (
 				758C4A9F16CC6B5900D737C7 /* main.m in Sources */,
 				758C4AA616CC6B5900D737C7 /* AppDelegate.m in Sources */,
-				758C4AB116CC6D9700D737C7 /* MCImageProcessor.m in Sources */,
 				BE208ADC1DC4F8B900F45B8A /* NSImage+Additions.swift in Sources */,
-				758C4AB416CC765C00D737C7 /* MCWoolColors.m in Sources */,
+				BE208AE81DC5609B00F45B8A /* MCMacImageProcessor.swift in Sources */,
 				75AD195216CC9DEF0056EFEF /* Schematic.m in Sources */,
 				BE208AE11DC5387700F45B8A /* WoolImage.swift in Sources */,
 				75AD196116CCAE740056EFEF /* NSData+GZIP.m in Sources */,
-				75729DB01DC3E9870094B2E8 /* NSColor+Additions.swift in Sources */,
 				75729DAD1DC3E8CC0094B2E8 /* ColorTransformer.swift in Sources */,
 				7574752316CEBB3C00C68060 /* PixelationView.m in Sources */,
 				BE208ADF1DC536C500F45B8A /* ImageProcessor.swift in Sources */,
