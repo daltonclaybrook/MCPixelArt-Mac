@@ -17,8 +17,8 @@ import AppKit
         super.init()
     }
     
-    func process(image: NSImage) -> MCWoolImage? {
-        let woolImage = processor.process(image: image)
+    func process(image: NSImage, size: CGSize) -> MCWoolImage? {
+        let woolImage = processor.process(image: image, size: size)
         return woolImage.flatMap { MCWoolImage(woolImage: $0) }
     }
 }

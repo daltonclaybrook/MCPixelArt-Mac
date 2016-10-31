@@ -19,12 +19,12 @@ class ImageProcessor<U:Image> {
     
     //MARK: Public
     
-    func process(image: U) -> WoolImage? {
-        let size = image.size
+    func process(image: U, size: CGSize) -> WoolImage? {
         let context = createARGBContext(with: size)
+        context.draw(image.toCGImage(), in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
         guard let ptr = context.data else { return nil }
         
-        let data = ptr.bindMemory(to: Int.self, capacity: Int(size.width * size.height * 4))
+        let data = ptr.bindMemory(to: UInt8.self, capacity: Int(size.width * size.height * 4))
         var woolIndexes = [Int]()
         
         for y in 0..<Int(size.height) {
@@ -38,9 +38,9 @@ class ImageProcessor<U:Image> {
                 woolIndexes.insert(colorIdx, at: 0)
                 
                 data[index] = 255
-                data[index+1] = min(max(Int(newColor.redValue * 255.0), 0), 255)
-                data[index+2] = min(max(Int(newColor.greenValue * 255.0), 0), 255)
-                data[index+3] = min(max(Int(newColor.blueValue * 255.0), 0), 255)
+                data[index+1] = min(max(UInt8(newColor.redValue * 255.0), 0), 255)
+                data[index+2] = min(max(UInt8(newColor.greenValue * 255.0), 0), 255)
+                data[index+3] = min(max(UInt8(newColor.blueValue * 255.0), 0), 255)
                 
                 let quantError = [
                     Int(oldR*255.0 - newColor.redValue*255.0),
@@ -59,9 +59,13 @@ class ImageProcessor<U:Image> {
                 
                 for ditherIdx in ditherIndexes {
                     if let ditherIdx = ditherIdx {
-                        data[ditherIdx+1] += Int(0.125 * Double(quantError[0]))
-                        data[ditherIdx+2] += Int(0.125 * Double(quantError[1]))
-                        data[ditherIdx+3] += Int(0.125 * Double(quantError[2]))
+                        let updated1 = Int(data[ditherIdx+1]) + Int(0.125 * Double(quantError[0]))
+                        let updated2 = Int(data[ditherIdx+2]) + Int(0.125 * Double(quantError[1]))
+                        let updated3 = Int(data[ditherIdx+3]) + Int(0.125 * Double(quantError[2]))
+                        
+                        data[ditherIdx+1] = UInt8(min(max(updated1, 0), 255))
+                        data[ditherIdx+2] = UInt8(min(max(updated2, 0), 255))
+                        data[ditherIdx+3] = UInt8(min(max(updated3, 0), 255))
                     }
                 }
             }

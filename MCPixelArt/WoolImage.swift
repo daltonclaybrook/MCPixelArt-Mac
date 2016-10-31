@@ -20,7 +20,7 @@ struct WoolImage {
     }
     
     private let woolImage: WoolImage
-    var image: Image {
+    var image: Any {
         return woolImage.image
     }
     var imageSize: CGSize {

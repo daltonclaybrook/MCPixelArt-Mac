@@ -54,9 +54,10 @@
     [self.previewButton setEnabled:NO];
     
     dispatch_async (dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
-        //self.woolImage = [self.imageLogic processImageWithSize:CGSizeMake((int)self.slider.floatValue, (int)(self.slider.floatValue/self.imageLogic.aspectRatio))];
         
-        self.woolImage = [self.imageLogic processWithImage:self.image];
+        CGFloat ratio = self.image.size.width/self.image.size.height;
+        CGSize size = CGSizeMake((int)self.slider.floatValue, (int)(self.slider.floatValue/ratio));
+        self.woolImage = [self.imageLogic processWithImage:self.image size:size];
         
         dispatch_async (dispatch_get_main_queue (), ^(void) {
             [self.loadingSpinner stopAnimation:self];
@@ -71,7 +72,7 @@
             }
             [self.airCheckBox setState:0];
             [self.previewImagePanel makeKeyAndOrderFront:self];
-            [self.previewImageView setImage:(NSImage *)[self woolImage]];
+            [self.previewImageView setImage:self.woolImage.image];
         });
     });
 }

@@ -55,7 +55,15 @@ class WoolColorTransformer: ColorTransformer {
     }
     
     func transform(color: Color) -> (color: Color, index: Int) {
-        let mapped = woolColors.enumerated().sorted { color.differenceByComparring(to: $0.1) < color.differenceByComparring(to: $1.1) }.first
-        return (mapped!.element, mapped!.offset)
+        var smallIdx = 0
+        var smallDiff = CGFloat.greatestFiniteMagnitude
+        for (idx, compareColor) in woolColors.enumerated() {
+            let diff = color.differenceByComparring(to: compareColor)
+            if diff < smallDiff {
+                smallDiff = diff
+                smallIdx = idx
+            }
+        }
+        return (woolColors[smallIdx], smallIdx)
     }
 }
