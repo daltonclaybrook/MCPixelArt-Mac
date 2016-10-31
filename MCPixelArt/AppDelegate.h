@@ -10,12 +10,12 @@
 #import <QuartzCore/QuartzCore.h>
 #import "MCPixelArt-Swift.h"
 #import "PixelationView.h"
-#import "Schematic.h"
+#import "MCSchematic.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, NSTextFieldDelegate, NSOpenSavePanelDelegate>
 
 @property (nonatomic, strong) MCMacImageProcessor *imageLogic;
-@property (nonatomic, strong) Schematic *schematic;
+@property (nonatomic, strong) MCSchematic *schematic;
 @property (assign) IBOutlet NSWindow *window;
 @property (unsafe_unretained) IBOutlet NSTextField *sizeField;
 @property (unsafe_unretained) IBOutlet NSSlider *slider;

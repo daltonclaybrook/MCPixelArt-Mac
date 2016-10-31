@@ -19,7 +19,7 @@ class ImageProcessor<U:Image> {
     
     //MARK: Public
     
-    func process(image: U, size: CGSize) -> WoolImage? {
+    func process(image: U, size: CGSize) -> WoolImage<U>? {
         let context = createARGBContext(with: size)
         context.draw(image.toCGImage(), in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
         guard let ptr = context.data else { return nil }

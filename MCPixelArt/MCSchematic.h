@@ -10,6 +10,8 @@
 @import CoreGraphics;
 #import "NSData+GZIP.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 enum {
     TAG_End,
     TAG_Byte,
@@ -25,10 +27,12 @@ enum {
     TAG_Int_Array
 };
 
-@interface Schematic : NSObject
+@interface MCSchematic : NSObject
 
 @property (nonatomic, strong) NSData *schemData;
 
 - (NSData *)createSchematicWithIndeces:(NSArray *)wool andSize:(CGSize)size replacingWhiteWool:(BOOL)replace;
 
 @end
+
+NS_ASSUME_NONNULL_END

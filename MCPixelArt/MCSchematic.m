@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Claybrook Software, LLC. All rights reserved.
 //
 
-#import "Schematic.h"
+#import "MCSchematic.h"
 
-@interface Schematic ()
+@interface MCSchematic ()
 
 @property (nonatomic, strong) NSDictionary *masterCompound;
 @property (nonatomic) unsigned long bytesConsumed;
@@ -21,7 +21,7 @@
 
 @end
 
-@implementation Schematic
+@implementation MCSchematic
 
 @synthesize schemData = _schemData, masterCompound = _masterCompound, bytesConsumed = _bytesConsumed;
 

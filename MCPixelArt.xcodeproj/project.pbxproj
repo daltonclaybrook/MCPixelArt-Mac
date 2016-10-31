@@ -12,7 +12,7 @@
 		75729D971DC3BC220094B2E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75729D951DC3BC220094B2E8 /* Main.storyboard */; };
 		75729D991DC3BC220094B2E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75729D981DC3BC220094B2E8 /* Assets.xcassets */; };
 		75729D9C1DC3BC220094B2E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75729D9A1DC3BC220094B2E8 /* LaunchScreen.storyboard */; };
-		75729DA51DC3E4C00094B2E8 /* Schematic.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AD195116CC9DEF0056EFEF /* Schematic.m */; };
+		75729DA51DC3E4C00094B2E8 /* MCSchematic.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AD195116CC9DEF0056EFEF /* MCSchematic.m */; };
 		75729DAD1DC3E8CC0094B2E8 /* ColorTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75729DAC1DC3E8CC0094B2E8 /* ColorTransformer.swift */; };
 		75729DAE1DC3E96D0094B2E8 /* ColorTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75729DAC1DC3E8CC0094B2E8 /* ColorTransformer.swift */; };
 		7574752316CEBB3C00C68060 /* PixelationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7574752216CEBB3C00C68060 /* PixelationView.m */; };
@@ -23,9 +23,13 @@
 		758C4AA316CC6B5900D737C7 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 758C4AA116CC6B5900D737C7 /* Credits.rtf */; };
 		758C4AA616CC6B5900D737C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 758C4AA516CC6B5900D737C7 /* AppDelegate.m */; };
 		758C4AA916CC6B5900D737C7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 758C4AA716CC6B5900D737C7 /* MainMenu.xib */; };
-		75AD195216CC9DEF0056EFEF /* Schematic.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AD195116CC9DEF0056EFEF /* Schematic.m */; };
+		75AD195216CC9DEF0056EFEF /* MCSchematic.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AD195116CC9DEF0056EFEF /* MCSchematic.m */; };
 		75AD195916CCA5320056EFEF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 75AD195816CCA5320056EFEF /* libz.dylib */; };
 		75AD196116CCAE740056EFEF /* NSData+GZIP.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AD196016CCAE740056EFEF /* NSData+GZIP.m */; };
+		75CB98021DC6F0EF004AAEE4 /* MCWoolImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CB98011DC6F0EF004AAEE4 /* MCWoolImage.swift */; };
+		75CB98071DC6F46C004AAEE4 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CB98061DC6F46C004AAEE4 /* PreviewViewController.swift */; };
+		75CB980B1DC6FDFA004AAEE4 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CB980A1DC6FDFA004AAEE4 /* LoadingView.swift */; };
+		75CB980D1DC6FE0F004AAEE4 /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CB980C1DC6FE0F004AAEE4 /* UIView+Additions.swift */; };
 		BE208ADC1DC4F8B900F45B8A /* NSImage+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE208ADB1DC4F8B900F45B8A /* NSImage+Additions.swift */; };
 		BE208ADD1DC4F8C800F45B8A /* UIImage+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE208AD91DC4F8AF00F45B8A /* UIImage+Additions.swift */; };
 		BE208ADF1DC536C500F45B8A /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE208ADE1DC536C500F45B8A /* ImageProcessor.swift */; };
@@ -65,15 +69,15 @@
 		758C4AA416CC6B5900D737C7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		758C4AA516CC6B5900D737C7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		758C4AA816CC6B5900D737C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		758C4AAF16CC6D9700D737C7 /* MCImageProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCImageProcessor.h; sourceTree = "<group>"; };
-		758C4AB016CC6D9700D737C7 /* MCImageProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCImageProcessor.m; sourceTree = "<group>"; };
-		758C4AB216CC765C00D737C7 /* MCWoolColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCWoolColors.h; sourceTree = "<group>"; };
-		758C4AB316CC765C00D737C7 /* MCWoolColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCWoolColors.m; sourceTree = "<group>"; };
-		75AD195016CC9DEF0056EFEF /* Schematic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schematic.h; sourceTree = "<group>"; };
-		75AD195116CC9DEF0056EFEF /* Schematic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schematic.m; sourceTree = "<group>"; };
+		75AD195016CC9DEF0056EFEF /* MCSchematic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSchematic.h; sourceTree = "<group>"; };
+		75AD195116CC9DEF0056EFEF /* MCSchematic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSchematic.m; sourceTree = "<group>"; };
 		75AD195816CCA5320056EFEF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		75AD195F16CCAE740056EFEF /* NSData+GZIP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+GZIP.h"; sourceTree = "<group>"; };
 		75AD196016CCAE740056EFEF /* NSData+GZIP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+GZIP.m"; sourceTree = "<group>"; };
+		75CB98011DC6F0EF004AAEE4 /* MCWoolImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCWoolImage.swift; sourceTree = "<group>"; };
+		75CB98061DC6F46C004AAEE4 /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		75CB980A1DC6FDFA004AAEE4 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		75CB980C1DC6FE0F004AAEE4 /* UIView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Additions.swift"; sourceTree = "<group>"; };
 		BE208AD91DC4F8AF00F45B8A /* UIImage+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Additions.swift"; sourceTree = "<group>"; };
 		BE208ADB1DC4F8B900F45B8A /* NSImage+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+Additions.swift"; sourceTree = "<group>"; };
 		BE208ADE1DC536C500F45B8A /* ImageProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
@@ -107,8 +111,11 @@
 		75729D901DC3BC220094B2E8 /* MCArt-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				75CB980C1DC6FE0F004AAEE4 /* UIView+Additions.swift */,
+				75CB980A1DC6FDFA004AAEE4 /* LoadingView.swift */,
 				75729D911DC3BC220094B2E8 /* AppDelegate.swift */,
 				75729D931DC3BC220094B2E8 /* ViewController.swift */,
+				75CB98061DC6F46C004AAEE4 /* PreviewViewController.swift */,
 				75729D951DC3BC220094B2E8 /* Main.storyboard */,
 				75729D981DC3BC220094B2E8 /* Assets.xcassets */,
 				75729D9A1DC3BC220094B2E8 /* LaunchScreen.storyboard */,
@@ -129,12 +136,8 @@
 		7574752716CECC8600C68060 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				758C4AAF16CC6D9700D737C7 /* MCImageProcessor.h */,
-				758C4AB016CC6D9700D737C7 /* MCImageProcessor.m */,
-				758C4AB216CC765C00D737C7 /* MCWoolColors.h */,
-				758C4AB316CC765C00D737C7 /* MCWoolColors.m */,
-				75AD195016CC9DEF0056EFEF /* Schematic.h */,
-				75AD195116CC9DEF0056EFEF /* Schematic.m */,
+				75AD195016CC9DEF0056EFEF /* MCSchematic.h */,
+				75AD195116CC9DEF0056EFEF /* MCSchematic.m */,
 				75729DAC1DC3E8CC0094B2E8 /* ColorTransformer.swift */,
 				BE208ADE1DC536C500F45B8A /* ImageProcessor.swift */,
 				75729DAF1DC3E9870094B2E8 /* NSColor+Additions.swift */,
@@ -142,6 +145,7 @@
 				BE208ADB1DC4F8B900F45B8A /* NSImage+Additions.swift */,
 				BE208AD91DC4F8AF00F45B8A /* UIImage+Additions.swift */,
 				BE208AE01DC5387700F45B8A /* WoolImage.swift */,
+				75CB98011DC6F0EF004AAEE4 /* MCWoolImage.swift */,
 				BE208AE71DC5609B00F45B8A /* MCMacImageProcessor.swift */,
 			);
 			name = Model;
@@ -337,14 +341,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75729DA51DC3E4C00094B2E8 /* Schematic.m in Sources */,
+				75729DA51DC3E4C00094B2E8 /* MCSchematic.m in Sources */,
 				75729D941DC3BC220094B2E8 /* ViewController.swift in Sources */,
 				75729DAE1DC3E96D0094B2E8 /* ColorTransformer.swift in Sources */,
+				75CB980B1DC6FDFA004AAEE4 /* LoadingView.swift in Sources */,
+				75CB980D1DC6FE0F004AAEE4 /* UIView+Additions.swift in Sources */,
 				BE208ADD1DC4F8C800F45B8A /* UIImage+Additions.swift in Sources */,
 				BE208AE21DC5501F00F45B8A /* ImageProcessor.swift in Sources */,
 				75729D921DC3BC220094B2E8 /* AppDelegate.swift in Sources */,
 				BE208AE31DC5502200F45B8A /* WoolImage.swift in Sources */,
 				BE208AE41DC5512900F45B8A /* NSData+GZIP.m in Sources */,
+				75CB98071DC6F46C004AAEE4 /* PreviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,7 +363,8 @@
 				758C4AA616CC6B5900D737C7 /* AppDelegate.m in Sources */,
 				BE208ADC1DC4F8B900F45B8A /* NSImage+Additions.swift in Sources */,
 				BE208AE81DC5609B00F45B8A /* MCMacImageProcessor.swift in Sources */,
-				75AD195216CC9DEF0056EFEF /* Schematic.m in Sources */,
+				75CB98021DC6F0EF004AAEE4 /* MCWoolImage.swift in Sources */,
+				75AD195216CC9DEF0056EFEF /* MCSchematic.m in Sources */,
 				BE208AE11DC5387700F45B8A /* WoolImage.swift in Sources */,
 				75AD196116CCAE740056EFEF /* NSData+GZIP.m in Sources */,
 				75729DAD1DC3E8CC0094B2E8 /* ColorTransformer.swift in Sources */,
@@ -434,6 +442,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "MCPixelArt/MCPixelArt-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -463,6 +472,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.claybrooksoftware.MCArt-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "MCPixelArt/MCPixelArt-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

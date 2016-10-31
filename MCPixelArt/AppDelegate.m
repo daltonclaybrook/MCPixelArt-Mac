@@ -29,7 +29,7 @@
         self.imageLogic = [[MCMacImageProcessor alloc] init];
     }
     if (self.schematic == nil) {
-        self.schematic = [[Schematic alloc] init];
+        self.schematic = [[MCSchematic alloc] init];
     }
 }
 
