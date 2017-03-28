@@ -281,7 +281,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Claybrook Software, LLC";
 				TargetAttributes = {
 					75729D8E1DC3BC220094B2E8 = {
@@ -290,7 +290,9 @@
 						ProvisioningStyle = Automatic;
 					};
 					758C4A8E16CC6B5900D737C7 = {
+						DevelopmentTeam = 4SGAZDJL4U;
 						LastSwiftMigration = 0810;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -551,6 +553,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
@@ -558,7 +561,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 4SGAZDJL4U;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MCPixelArt/MCPixelArt-Prefix.pch";
 				INFOPLIST_FILE = "MCPixelArt/MCPixelArt-Info.plist";
@@ -577,7 +582,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 4SGAZDJL4U;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MCPixelArt/MCPixelArt-Prefix.pch";
 				INFOPLIST_FILE = "MCPixelArt/MCPixelArt-Info.plist";
