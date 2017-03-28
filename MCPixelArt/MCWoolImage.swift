@@ -6,15 +6,15 @@
 //  Copyright © 2016 Claybrook Software, LLC. All rights reserved.
 //
 
-import Foundation
+import AppKit
 
 @objc class MCWoolImage: NSObject {
     
-    init(woolImage: WoolImage) {
+    init(woolImage: WoolImage<NSImage>) {
         self.woolImage = woolImage
     }
     
-    private let woolImage: WoolImage
+    private let woolImage: WoolImage<NSImage>
     var image: Any {
         return woolImage.image
     }
