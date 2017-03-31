@@ -30,6 +30,12 @@
 		75CB98071DC6F46C004AAEE4 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CB98061DC6F46C004AAEE4 /* PreviewViewController.swift */; };
 		75CB980B1DC6FDFA004AAEE4 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CB980A1DC6FDFA004AAEE4 /* LoadingView.swift */; };
 		75CB980D1DC6FE0F004AAEE4 /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CB980C1DC6FE0F004AAEE4 /* UIView+Additions.swift */; };
+		75E8661D1E8E0E0A00400BE8 /* AspectCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E8661C1E8E0E0A00400BE8 /* AspectCollectionViewLayout.swift */; };
+		75E8661F1E8E0E2800400BE8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E8661E1E8E0E2800400BE8 /* HomeViewController.swift */; };
+		75E866211E8E0F3300400BE8 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E866201E8E0F3300400BE8 /* HomeCollectionViewController.swift */; };
+		75E866261E8E13FA00400BE8 /* ArtCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E866251E8E13FA00400BE8 /* ArtCell.swift */; };
+		75E8662F1E8E150800400BE8 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E8662E1E8E150800400BE8 /* GradientView.swift */; };
+		75E866311E8E1A7A00400BE8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E866301E8E1A7A00400BE8 /* Constants.swift */; };
 		BE208ADC1DC4F8B900F45B8A /* NSImage+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE208ADB1DC4F8B900F45B8A /* NSImage+Additions.swift */; };
 		BE208ADD1DC4F8C800F45B8A /* UIImage+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE208AD91DC4F8AF00F45B8A /* UIImage+Additions.swift */; };
 		BE208ADF1DC536C500F45B8A /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE208ADE1DC536C500F45B8A /* ImageProcessor.swift */; };
@@ -78,6 +84,12 @@
 		75CB98061DC6F46C004AAEE4 /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		75CB980A1DC6FDFA004AAEE4 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		75CB980C1DC6FE0F004AAEE4 /* UIView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Additions.swift"; sourceTree = "<group>"; };
+		75E8661C1E8E0E0A00400BE8 /* AspectCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AspectCollectionViewLayout.swift; sourceTree = "<group>"; };
+		75E8661E1E8E0E2800400BE8 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		75E866201E8E0F3300400BE8 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
+		75E866251E8E13FA00400BE8 /* ArtCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtCell.swift; sourceTree = "<group>"; };
+		75E8662E1E8E150800400BE8 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		75E866301E8E1A7A00400BE8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BE208AD91DC4F8AF00F45B8A /* UIImage+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Additions.swift"; sourceTree = "<group>"; };
 		BE208ADB1DC4F8B900F45B8A /* NSImage+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+Additions.swift"; sourceTree = "<group>"; };
 		BE208ADE1DC536C500F45B8A /* ImageProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
@@ -111,15 +123,14 @@
 		75729D901DC3BC220094B2E8 /* MCArt-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				75CB980C1DC6FE0F004AAEE4 /* UIView+Additions.swift */,
-				75CB980A1DC6FDFA004AAEE4 /* LoadingView.swift */,
-				75729D911DC3BC220094B2E8 /* AppDelegate.swift */,
-				75729D931DC3BC220094B2E8 /* ViewController.swift */,
-				75CB98061DC6F46C004AAEE4 /* PreviewViewController.swift */,
-				75729D951DC3BC220094B2E8 /* Main.storyboard */,
-				75729D981DC3BC220094B2E8 /* Assets.xcassets */,
-				75729D9A1DC3BC220094B2E8 /* LaunchScreen.storyboard */,
-				75729D9D1DC3BC220094B2E8 /* Info.plist */,
+				75E866241E8E11BA00400BE8 /* Cells */,
+				75E8661B1E8E0DF700400BE8 /* Layouts */,
+				75E866151E8E0DA800400BE8 /* Extensions */,
+				75E866161E8E0DB500400BE8 /* Views */,
+				75E866171E8E0DC300400BE8 /* Supporting Files */,
+				75E866181E8E0DCF00400BE8 /* Controllers */,
+				75E8661A1E8E0DDE00400BE8 /* Storyboards */,
+				75E866191E8E0DD600400BE8 /* Resources */,
 			);
 			path = "MCArt-iOS";
 			sourceTree = "<group>";
@@ -237,6 +248,77 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		75E866151E8E0DA800400BE8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				75CB980C1DC6FE0F004AAEE4 /* UIView+Additions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		75E866161E8E0DB500400BE8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				75CB980A1DC6FDFA004AAEE4 /* LoadingView.swift */,
+				75E8662E1E8E150800400BE8 /* GradientView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		75E866171E8E0DC300400BE8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				75E866301E8E1A7A00400BE8 /* Constants.swift */,
+				75729D911DC3BC220094B2E8 /* AppDelegate.swift */,
+				75729D9A1DC3BC220094B2E8 /* LaunchScreen.storyboard */,
+				75729D9D1DC3BC220094B2E8 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		75E866181E8E0DCF00400BE8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				75729D931DC3BC220094B2E8 /* ViewController.swift */,
+				75CB98061DC6F46C004AAEE4 /* PreviewViewController.swift */,
+				75E8661E1E8E0E2800400BE8 /* HomeViewController.swift */,
+				75E866201E8E0F3300400BE8 /* HomeCollectionViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		75E866191E8E0DD600400BE8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				75729D981DC3BC220094B2E8 /* Assets.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		75E8661A1E8E0DDE00400BE8 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				75729D951DC3BC220094B2E8 /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		75E8661B1E8E0DF700400BE8 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				75E8661C1E8E0E0A00400BE8 /* AspectCollectionViewLayout.swift */,
+			);
+			name = Layouts;
+			sourceTree = "<group>";
+		};
+		75E866241E8E11BA00400BE8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				75E866251E8E13FA00400BE8 /* ArtCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -344,15 +426,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				75729DA51DC3E4C00094B2E8 /* MCSchematic.m in Sources */,
+				75E866311E8E1A7A00400BE8 /* Constants.swift in Sources */,
 				75729D941DC3BC220094B2E8 /* ViewController.swift in Sources */,
+				75E866261E8E13FA00400BE8 /* ArtCell.swift in Sources */,
 				75729DAE1DC3E96D0094B2E8 /* ColorTransformer.swift in Sources */,
 				75CB980B1DC6FDFA004AAEE4 /* LoadingView.swift in Sources */,
+				75E8661D1E8E0E0A00400BE8 /* AspectCollectionViewLayout.swift in Sources */,
+				75E8662F1E8E150800400BE8 /* GradientView.swift in Sources */,
 				75CB980D1DC6FE0F004AAEE4 /* UIView+Additions.swift in Sources */,
 				BE208ADD1DC4F8C800F45B8A /* UIImage+Additions.swift in Sources */,
 				BE208AE21DC5501F00F45B8A /* ImageProcessor.swift in Sources */,
 				75729D921DC3BC220094B2E8 /* AppDelegate.swift in Sources */,
 				BE208AE31DC5502200F45B8A /* WoolImage.swift in Sources */,
 				BE208AE41DC5512900F45B8A /* NSData+GZIP.m in Sources */,
+				75E866211E8E0F3300400BE8 /* HomeCollectionViewController.swift in Sources */,
+				75E8661F1E8E0E2800400BE8 /* HomeViewController.swift in Sources */,
 				75CB98071DC6F46C004AAEE4 /* PreviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

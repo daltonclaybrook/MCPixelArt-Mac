@@ -10,11 +10,11 @@ import AppKit
 
 @objc class MCWoolImage: NSObject {
     
-    init(woolImage: WoolImage<NSImage>) {
+    init(woolImage: WoolImageT) {
         self.woolImage = woolImage
     }
     
-    private let woolImage: WoolImage<NSImage>
+    private let woolImage: WoolImageT
     var image: Any {
         return woolImage.image
     }

@@ -73,7 +73,7 @@ class ImageProcessor<U:Image> {
         
         let cgImage = context.makeImage()!
         let newImage = U.fromCGImage(cgImage, size: size)
-        return WoolImage(image: newImage, woolIndexes: woolIndexes)
+        return WoolImage(name: nil, image: newImage, woolIndexes: woolIndexes)
     }
     
     //MARK: Private

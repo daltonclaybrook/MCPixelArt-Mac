@@ -9,7 +9,7 @@
 import UIKit
 
 protocol PreviewViewControllerDelegate: class {
-    func previewViewController(_ vc: PreviewViewController, saved image: WoolImage<UIImage>)
+    func previewViewController(_ vc: PreviewViewController, saved image: WoolImageT)
     func previewViewControllerCancelled(_ vc: PreviewViewController)
 }
 
@@ -18,7 +18,7 @@ class PreviewViewController: UIViewController {
     @IBOutlet var previewImageView: UIImageView!
     weak var delegate: PreviewViewControllerDelegate?
     
-    private var woolImage: WoolImage<UIImage>?
+    private var woolImage: WoolImageT?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class PreviewViewController: UIViewController {
     
     //MARK: Public
     
-    func configure(with image: WoolImage<UIImage>) {
+    func configure(with image: WoolImageT) {
         self.woolImage = image
     }
     
@@ -44,7 +44,7 @@ class PreviewViewController: UIViewController {
     
     //MARK: Private
     
-    private func saveImage(image: WoolImage<UIImage>) {
+    private func saveImage(image: WoolImageT) {
         let schematic = MCSchematic()
         let data = schematic.createSchematic(withIndeces: image.woolIndexes, andSize: image.image.size, replacingWhiteWool: false)
         let url = tempFileURL()

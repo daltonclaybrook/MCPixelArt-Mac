@@ -11,13 +11,17 @@ import UIKit
 extension UIView { // Constraints
     
     func constrainEdgesToSuperview() {
+        constrainEdgesToSuperview(with: .zero)
+    }
+    
+    func constrainEdgesToSuperview(with inset: UIEdgeInsets) {
         guard let superview=superview else { assertionFailure("must have a superview"); return }
         
         translatesAutoresizingMaskIntoConstraints = false
-        superview.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        superview.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        superview.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        superview.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        superview.leftAnchor.constraint(equalTo: leftAnchor, constant: inset.left).isActive = true
+        superview.topAnchor.constraint(equalTo: topAnchor, constant: inset.top).isActive = true
+        superview.rightAnchor.constraint(equalTo: rightAnchor, constant: -inset.right).isActive = true
+        superview.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -inset.bottom).isActive = true
     }
 }
 

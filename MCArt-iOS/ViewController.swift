@@ -13,7 +13,7 @@ let ShowPreview = "ShowPreview"
 class ViewController: UIViewController {
 
     private let loadingView = LoadingView()
-    private var woolImage: WoolImage<UIImage>?
+    private var woolImage: WoolImageT?
     
     //MARK: Superclass
     
@@ -67,7 +67,7 @@ class ViewController: UIViewController {
 
 extension ViewController: PreviewViewControllerDelegate {
     
-    func previewViewController(_ vc: PreviewViewController, saved image: WoolImage<UIImage>) {
+    func previewViewController(_ vc: PreviewViewController, saved image: WoolImageT) {
         dismiss(animated: true, completion: nil)
     }
     

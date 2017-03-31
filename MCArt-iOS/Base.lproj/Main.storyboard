@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uGQ-7K-DSS">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -118,6 +118,130 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Azh-Dr-nSD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="949.60000000000002" y="137.18140929535232"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="P3f-mJ-NRN">
+            <objects>
+                <navigationController id="uGQ-7K-DSS" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mZd-lc-qoU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="JW2-le-k1p" kind="relationship" relationship="rootViewController" id="7EP-AN-IG5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5D7-Bp-2wD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137" y="866"/>
+        </scene>
+        <!--Murals-->
+        <scene sceneID="VGp-2a-YbH">
+            <objects>
+                <viewController id="JW2-le-k1p" customClass="HomeViewController" customModule="MCArt_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Va1-Vj-2Vf"/>
+                        <viewControllerLayoutGuide type="bottom" id="v56-tS-oH3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yCr-oN-qQQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ih3-wo-Bsg">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <connections>
+                                    <segue destination="6W1-hl-Boz" kind="embed" identifier="homeCollection" id="EVo-bD-ChZ"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ih3-wo-Bsg" secondAttribute="trailing" id="4ei-NI-9dw"/>
+                            <constraint firstItem="ih3-wo-Bsg" firstAttribute="top" secondItem="yCr-oN-qQQ" secondAttribute="top" id="Uve-oD-IbY"/>
+                            <constraint firstItem="v56-tS-oH3" firstAttribute="top" secondItem="ih3-wo-Bsg" secondAttribute="bottom" id="biS-6Z-Q0W"/>
+                            <constraint firstItem="ih3-wo-Bsg" firstAttribute="leading" secondItem="yCr-oN-qQQ" secondAttribute="leading" id="eRj-4Y-sBK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Murals" id="uf7-1Y-I4N">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Np2-82-Daj">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="JW2-le-k1p" id="7XB-xe-ZoZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gpx-cm-mX0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="949.60000000000002" y="865.81709145427294"/>
+        </scene>
+        <!--Home Collection View Controller-->
+        <scene sceneID="sxL-hc-fWH">
+            <objects>
+                <collectionViewController id="6W1-hl-Boz" customClass="HomeCollectionViewController" customModule="MCArt_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="0bM-OM-s4z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IbO-kQ-tqi" customClass="AspectCollectionViewLayout" customModule="MCArt_iOS" customModuleProvider="target">
+                            <size key="itemSize" width="206" height="182"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zsG-Nv-Nbq" customClass="ArtCell" customModule="MCArt_iOS" customModuleProvider="target">
+                                <rect key="frame" x="84.5" y="0.0" width="206" height="182"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="206" height="182"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ppN-NV-SC4">
+                                            <rect key="frame" x="0.0" y="0.0" width="206" height="182"/>
+                                        </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="38H-k9-kqc" customClass="GradientView" customModule="MCArt_iOS" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="150" width="206" height="32"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="32" id="ptS-kk-ngj"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ok-Hp-l6u">
+                                            <rect key="frame" x="6.5" y="155" width="193.5" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="2Ok-Hp-l6u" secondAttribute="trailing" constant="6" id="3Py-0I-53H"/>
+                                    <constraint firstItem="ppN-NV-SC4" firstAttribute="leading" secondItem="zsG-Nv-Nbq" secondAttribute="leading" id="894-qq-n2q"/>
+                                    <constraint firstAttribute="trailing" secondItem="ppN-NV-SC4" secondAttribute="trailing" id="DKF-xo-lza"/>
+                                    <constraint firstItem="2Ok-Hp-l6u" firstAttribute="centerY" secondItem="38H-k9-kqc" secondAttribute="centerY" id="HlN-2c-1ZE"/>
+                                    <constraint firstItem="38H-k9-kqc" firstAttribute="leading" secondItem="zsG-Nv-Nbq" secondAttribute="leading" id="L3r-nP-FQ0"/>
+                                    <constraint firstAttribute="bottom" secondItem="ppN-NV-SC4" secondAttribute="bottom" id="OZF-pz-Dl7"/>
+                                    <constraint firstItem="ppN-NV-SC4" firstAttribute="top" secondItem="zsG-Nv-Nbq" secondAttribute="top" id="UGN-VF-pGX"/>
+                                    <constraint firstAttribute="trailing" secondItem="38H-k9-kqc" secondAttribute="trailing" id="bUq-Bt-n32"/>
+                                    <constraint firstAttribute="bottom" secondItem="38H-k9-kqc" secondAttribute="bottom" id="iFM-PY-Ci3"/>
+                                    <constraint firstItem="2Ok-Hp-l6u" firstAttribute="leading" secondItem="zsG-Nv-Nbq" secondAttribute="leading" constant="6" id="jgC-ND-N9A"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="gradientView" destination="38H-k9-kqc" id="AXD-c0-VVJ"/>
+                                    <outlet property="imageView" destination="ppN-NV-SC4" id="1tI-x7-aSA"/>
+                                    <outlet property="nameLabel" destination="2Ok-Hp-l6u" id="Li4-rC-E4n"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="6W1-hl-Boz" id="6ab-s3-22H"/>
+                            <outlet property="delegate" destination="6W1-hl-Boz" id="dFx-2d-aPX"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5c9-3A-itL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="949.60000000000002" y="1621.4392803598203"/>
         </scene>
     </scenes>
     <resources>
