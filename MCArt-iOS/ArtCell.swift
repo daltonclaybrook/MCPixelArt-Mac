@@ -23,7 +23,7 @@ class ArtCell: UICollectionViewCell {
         nameLabel.isHidden = false
     }
     
-    func configure(with woolImage: WoolImageT) {
+    func configure(with woolImage: WoolImage) {
         imageView.image = woolImage.image
         if let name = woolImage.name {
             nameLabel.text = name

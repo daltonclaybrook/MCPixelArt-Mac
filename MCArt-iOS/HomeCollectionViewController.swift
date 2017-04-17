@@ -13,7 +13,7 @@ class HomeCollectionViewController: UICollectionViewController {
         return collectionViewLayout as! AspectCollectionViewLayout
     }
     
-    var woolImages = [WoolImageT]()
+    var woolImages = [WoolImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()

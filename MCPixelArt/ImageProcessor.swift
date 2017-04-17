@@ -9,7 +9,7 @@
 import Foundation
 import CoreGraphics
 
-class ImageProcessor<U:Image> {
+class ImageProcessor {
     
     let transformer: ColorTransformer
     
@@ -19,7 +19,7 @@ class ImageProcessor<U:Image> {
     
     //MARK: Public
     
-    func process(image: U, size: CGSize) -> WoolImage<U>? {
+    func process(image: ImageT, size: CGSize) -> WoolImage? {
         let context = createARGBContext(with: size)
         context.draw(image.toCGImage(), in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
         guard let ptr = context.data else { return nil }
@@ -72,7 +72,7 @@ class ImageProcessor<U:Image> {
         }
         
         let cgImage = context.makeImage()!
-        let newImage = U.fromCGImage(cgImage, size: size)
+        let newImage = ImageT.fromCGImage(cgImage, size: size)
         return WoolImage(name: nil, image: newImage, woolIndexes: woolIndexes)
     }
     

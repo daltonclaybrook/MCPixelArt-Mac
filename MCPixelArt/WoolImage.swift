@@ -8,14 +8,14 @@
 
 #if os(iOS)
     import UIKit
-    typealias WoolImageT = WoolImage<UIImage>
+    typealias ImageT = UIImage
 #elseif os(OSX)
     import AppKit
-    typealias WoolImageT = WoolImage<NSImage>
+    typealias ImageT = NSImage
 #endif
 
-struct WoolImage<T:Image> {
+struct WoolImage {
     var name: String?
-    let image: T
+    let image: ImageT
     let woolIndexes: [Int]
 }

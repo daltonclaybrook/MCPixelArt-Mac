@@ -26,6 +26,12 @@
 		75AD195216CC9DEF0056EFEF /* MCSchematic.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AD195116CC9DEF0056EFEF /* MCSchematic.m */; };
 		75AD195916CCA5320056EFEF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 75AD195816CCA5320056EFEF /* libz.dylib */; };
 		75AD196116CCAE740056EFEF /* NSData+GZIP.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AD196016CCAE740056EFEF /* NSData+GZIP.m */; };
+		75B5871C1EA45EA100F4266B /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B587171EA45EA100F4266B /* CropViewController.swift */; };
+		75B5871D1EA45EA100F4266B /* CropRectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B587181EA45EA100F4266B /* CropRectView.swift */; };
+		75B5871E1EA45EA100F4266B /* CropDragPointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B587191EA45EA100F4266B /* CropDragPointView.swift */; };
+		75B5871F1EA45EA100F4266B /* CropDragPointManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B5871A1EA45EA100F4266B /* CropDragPointManager.swift */; };
+		75B587201EA45EA100F4266B /* DimmingMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B5871B1EA45EA100F4266B /* DimmingMaskView.swift */; };
+		75B587221EA4797700F4266B /* SizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B587211EA4797700F4266B /* SizeViewController.swift */; };
 		75CB98021DC6F0EF004AAEE4 /* MCWoolImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CB98011DC6F0EF004AAEE4 /* MCWoolImage.swift */; };
 		75CB98071DC6F46C004AAEE4 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CB98061DC6F46C004AAEE4 /* PreviewViewController.swift */; };
 		75CB980B1DC6FDFA004AAEE4 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CB980A1DC6FDFA004AAEE4 /* LoadingView.swift */; };
@@ -80,6 +86,12 @@
 		75AD195816CCA5320056EFEF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		75AD195F16CCAE740056EFEF /* NSData+GZIP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+GZIP.h"; sourceTree = "<group>"; };
 		75AD196016CCAE740056EFEF /* NSData+GZIP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+GZIP.m"; sourceTree = "<group>"; };
+		75B587171EA45EA100F4266B /* CropViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CropViewController.swift; sourceTree = "<group>"; };
+		75B587181EA45EA100F4266B /* CropRectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CropRectView.swift; sourceTree = "<group>"; };
+		75B587191EA45EA100F4266B /* CropDragPointView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CropDragPointView.swift; sourceTree = "<group>"; };
+		75B5871A1EA45EA100F4266B /* CropDragPointManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CropDragPointManager.swift; sourceTree = "<group>"; };
+		75B5871B1EA45EA100F4266B /* DimmingMaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimmingMaskView.swift; sourceTree = "<group>"; };
+		75B587211EA4797700F4266B /* SizeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeViewController.swift; sourceTree = "<group>"; };
 		75CB98011DC6F0EF004AAEE4 /* MCWoolImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCWoolImage.swift; sourceTree = "<group>"; };
 		75CB98061DC6F46C004AAEE4 /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		75CB980A1DC6FDFA004AAEE4 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -123,6 +135,7 @@
 		75729D901DC3BC220094B2E8 /* MCArt-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				75B587161EA45E9000F4266B /* Cropping */,
 				75E866241E8E11BA00400BE8 /* Cells */,
 				75E8661B1E8E0DF700400BE8 /* Layouts */,
 				75E866151E8E0DA800400BE8 /* Extensions */,
@@ -248,6 +261,18 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		75B587161EA45E9000F4266B /* Cropping */ = {
+			isa = PBXGroup;
+			children = (
+				75B587171EA45EA100F4266B /* CropViewController.swift */,
+				75B587181EA45EA100F4266B /* CropRectView.swift */,
+				75B587191EA45EA100F4266B /* CropDragPointView.swift */,
+				75B5871A1EA45EA100F4266B /* CropDragPointManager.swift */,
+				75B5871B1EA45EA100F4266B /* DimmingMaskView.swift */,
+			);
+			name = Cropping;
+			sourceTree = "<group>";
+		};
 		75E866151E8E0DA800400BE8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +308,7 @@
 				75CB98061DC6F46C004AAEE4 /* PreviewViewController.swift */,
 				75E8661E1E8E0E2800400BE8 /* HomeViewController.swift */,
 				75E866201E8E0F3300400BE8 /* HomeCollectionViewController.swift */,
+				75B587211EA4797700F4266B /* SizeViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -425,14 +451,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75B5871F1EA45EA100F4266B /* CropDragPointManager.swift in Sources */,
+				75B587221EA4797700F4266B /* SizeViewController.swift in Sources */,
 				75729DA51DC3E4C00094B2E8 /* MCSchematic.m in Sources */,
+				75B5871E1EA45EA100F4266B /* CropDragPointView.swift in Sources */,
 				75E866311E8E1A7A00400BE8 /* Constants.swift in Sources */,
+				75B5871D1EA45EA100F4266B /* CropRectView.swift in Sources */,
 				75729D941DC3BC220094B2E8 /* ViewController.swift in Sources */,
+				75B587201EA45EA100F4266B /* DimmingMaskView.swift in Sources */,
 				75E866261E8E13FA00400BE8 /* ArtCell.swift in Sources */,
 				75729DAE1DC3E96D0094B2E8 /* ColorTransformer.swift in Sources */,
 				75CB980B1DC6FDFA004AAEE4 /* LoadingView.swift in Sources */,
 				75E8661D1E8E0E0A00400BE8 /* AspectCollectionViewLayout.swift in Sources */,
 				75E8662F1E8E150800400BE8 /* GradientView.swift in Sources */,
+				75B5871C1EA45EA100F4266B /* CropViewController.swift in Sources */,
 				75CB980D1DC6FE0F004AAEE4 /* UIView+Additions.swift in Sources */,
 				BE208ADD1DC4F8C800F45B8A /* UIImage+Additions.swift in Sources */,
 				BE208AE21DC5501F00F45B8A /* ImageProcessor.swift in Sources */,

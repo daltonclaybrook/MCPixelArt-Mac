@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -169,16 +170,99 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="BP4-tT-7ri" kind="presentation" identifier="size" id="pIw-pb-24Q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gpx-cm-mX0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="949.60000000000002" y="865.81709145427294"/>
         </scene>
+        <!--Size View Controller-->
+        <scene sceneID="EQ9-xH-IQr">
+            <objects>
+                <viewController id="BP4-tT-7ri" customClass="SizeViewController" customModule="MCArt_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bJU-hv-8Wf"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wiw-wu-D74"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="joK-Ul-I7K">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="WVl-4g-xaf">
+                                <rect key="frame" x="16" y="549" width="343" height="29"/>
+                                <segments>
+                                    <segment title="Small"/>
+                                    <segment title="Medium"/>
+                                    <segment title="Large"/>
+                                    <segment title="XL"/>
+                                </segments>
+                                <connections>
+                                    <action selector="sizeSegmentValueChanged:" destination="BP4-tT-7ri" eventType="valueChanged" id="Hrt-1t-qHc"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whI-Aq-Lln">
+                                <rect key="frame" x="109.5" y="597" width="156" height="50"/>
+                                <color key="backgroundColor" red="0.16561987153056634" green="0.001465918208096717" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="1Qc-63-Hmj"/>
+                                    <constraint firstAttribute="width" constant="156" id="GQz-Qq-PfC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="PREVIEW">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="previewSaveButtonPressed:" destination="BP4-tT-7ri" eventType="touchUpInside" id="I3O-Qb-vDB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EC0-fG-D8e">
+                                <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                <state key="normal" image="xButton"/>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="BP4-tT-7ri" eventType="touchUpInside" id="4rV-Ej-TM0"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kBu-q1-QW6">
+                                <rect key="frame" x="16" y="52" width="343" height="477"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.64921874999999996" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kBu-q1-QW6" firstAttribute="top" secondItem="EC0-fG-D8e" secondAttribute="bottom" constant="8" id="1jm-Xc-xJb"/>
+                            <constraint firstItem="EC0-fG-D8e" firstAttribute="leading" secondItem="joK-Ul-I7K" secondAttribute="leading" id="6Pl-oB-Faf"/>
+                            <constraint firstItem="WVl-4g-xaf" firstAttribute="leading" secondItem="joK-Ul-I7K" secondAttribute="leadingMargin" id="Jgv-h5-Gp9"/>
+                            <constraint firstItem="whI-Aq-Lln" firstAttribute="top" secondItem="WVl-4g-xaf" secondAttribute="bottom" constant="20" id="Mhh-dQ-FRg"/>
+                            <constraint firstItem="whI-Aq-Lln" firstAttribute="centerX" secondItem="joK-Ul-I7K" secondAttribute="centerX" id="NRl-VS-Adx"/>
+                            <constraint firstItem="kBu-q1-QW6" firstAttribute="leading" secondItem="joK-Ul-I7K" secondAttribute="leadingMargin" id="Nmo-42-ASf"/>
+                            <constraint firstItem="kBu-q1-QW6" firstAttribute="trailing" secondItem="joK-Ul-I7K" secondAttribute="trailingMargin" id="Oef-dI-cYS"/>
+                            <constraint firstItem="Wiw-wu-D74" firstAttribute="top" secondItem="whI-Aq-Lln" secondAttribute="bottom" constant="20" id="VQH-x5-H21"/>
+                            <constraint firstItem="WVl-4g-xaf" firstAttribute="top" secondItem="kBu-q1-QW6" secondAttribute="bottom" constant="20" id="ZuZ-T3-VLk"/>
+                            <constraint firstItem="EC0-fG-D8e" firstAttribute="top" secondItem="joK-Ul-I7K" secondAttribute="top" id="j3w-MH-vyU"/>
+                            <constraint firstItem="WVl-4g-xaf" firstAttribute="trailing" secondItem="joK-Ul-I7K" secondAttribute="trailingMargin" id="qfU-MR-rC4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="kBu-q1-QW6" id="GXZ-D2-wjs"/>
+                        <outlet property="previewSaveButton" destination="whI-Aq-Lln" id="heu-1q-nbA"/>
+                        <outlet property="sizeSegment" destination="WVl-4g-xaf" id="TEA-Tg-mXO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VNs-v4-20n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1864.8" y="865.81709145427294"/>
+        </scene>
         <!--Home Collection View Controller-->
         <scene sceneID="sxL-hc-fWH">
             <objects>
                 <collectionViewController id="6W1-hl-Boz" customClass="HomeCollectionViewController" customModule="MCArt_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="0bM-OM-s4z">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="0bM-OM-s4z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -246,5 +330,6 @@
     </scenes>
     <resources>
         <image name="clear" width="48" height="48"/>
+        <image name="xButton" width="44" height="44"/>
     </resources>
 </document>

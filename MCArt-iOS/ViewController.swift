@@ -13,7 +13,7 @@ let ShowPreview = "ShowPreview"
 class ViewController: UIViewController {
 
     private let loadingView = LoadingView()
-    private var woolImage: WoolImageT?
+    private var woolImage: WoolImage?
     
     //MARK: Superclass
     
@@ -52,7 +52,7 @@ class ViewController: UIViewController {
     fileprivate func process(image: UIImage, size: CGSize) {
         loadingView.showInView(view: view)
         DispatchQueue(label: "Image Processing").async { [weak self] in
-            let processor = ImageProcessor<UIImage>(transformer: WoolColorTransformer())
+            let processor = ImageProcessor(transformer: WoolColorTransformer())
             if let woolImage = processor.process(image: image, size: size) {
                 DispatchQueue.main.async {
                     self?.loadingView.hide()
@@ -67,7 +67,7 @@ class ViewController: UIViewController {
 
 extension ViewController: PreviewViewControllerDelegate {
     
-    func previewViewController(_ vc: PreviewViewController, saved image: WoolImageT) {
+    func previewViewController(_ vc: PreviewViewController, saved image: WoolImage) {
         dismiss(animated: true, completion: nil)
     }
     

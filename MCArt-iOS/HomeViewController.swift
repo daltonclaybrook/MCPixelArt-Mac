@@ -15,6 +15,12 @@ class HomeViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueID.homeCollection, let collectionController = segue.destination as? HomeCollectionViewController {
             self.collectionController = collectionController
+        } else if segue.identifier == SegueID.size,
+            let viewController = segue.destination as? SizeViewController,
+            let image = sender as? UIImage {
+            
+            viewController.image = image
+            viewController.delegate = self
         }
     }
     
@@ -44,7 +50,6 @@ class HomeViewController: UIViewController {
         pickerController.delegate = self
         pickerController.sourceType = type
         pickerController.mediaTypes = [kUTTypeImage as String]
-//        pickerController.allowsEditing = true
         present(pickerController, animated: true, completion: nil)
     }
     
@@ -53,6 +58,14 @@ class HomeViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
+    
+    fileprivate func presentCropper(withImage image: UIImage) {
+        let cropViewController = CropViewController(image: image)
+        cropViewController.delegate = self
+        cropViewController.cancelButton.setImage(#imageLiteral(resourceName: "xButton"), for: .normal)
+        cropViewController.cancelButton.setTitle(nil, for: .normal)
+        present(cropViewController, animated: true, completion: nil)
+    }
 }
 
 extension HomeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -60,11 +73,33 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         dismiss(animated: true, completion: nil)
         guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
-        
-        
+        presentCropper(withImage: image)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+extension HomeViewController: CropViewControllerDelegate {
+    
+    func cropViewController(_ viewController: CropViewController, cropped image: UIImage) {
+        dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: SegueID.size, sender: image)
+    }
+    
+    func cropViewControllerCancelled(_ viewController: CropViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+extension HomeViewController: SizeViewControllerDelegate {
+    
+    func sizeViewControllerCancelled(_ viewController: SizeViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func sizeViewController(_ viewController: SizeViewController, created woolImage: WoolImage) {
         dismiss(animated: true, completion: nil)
     }
 }

@@ -34,3 +34,9 @@ extension UIView { // Actions
         CATransaction.commit()
     }
 }
+
+extension UIEdgeInsets {
+    func dividingByScale(_ scale: CGFloat) -> UIEdgeInsets {
+        return UIEdgeInsets(top: top/scale, left: left/scale, bottom: bottom/scale, right: right/scale)
+    }
+}
