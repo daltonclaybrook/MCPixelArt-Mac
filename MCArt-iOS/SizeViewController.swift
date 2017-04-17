@@ -24,7 +24,11 @@ class SizeViewController: UIViewController {
     
     private var currentWoolImage: WoolImage?
     private let loadingView = LoadingView()
-    private let widths: [CGFloat] = [ 50, 100, 200, 500 ]
+    private let widths: [CGFloat] = [ 50, 100, 200, 300 ]
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
