@@ -112,10 +112,12 @@ class CropViewController: UIViewController {
             !scrollView.isZooming &&
             !scrollView.isTracking &&
             !scrollView.isZoomBouncing,
-            let image = image else { return }
+            let image = image?.normalized() else { return }
         
         let frameInImage = view.convert(cropRectView.pointFrame, to: imageView).integral
-        let croppedImage = image.cgImage?.cropping(to: frameInImage).flatMap { UIImage(cgImage: $0) }
+        let croppedImage = image.cgImage?.cropping(to: frameInImage).flatMap {
+            UIImage(cgImage: $0, scale: image.scale, orientation: image.imageOrientation)
+        }
         if let croppedImage = croppedImage {
             delegate?.cropViewController(self, cropped: croppedImage)
         }
