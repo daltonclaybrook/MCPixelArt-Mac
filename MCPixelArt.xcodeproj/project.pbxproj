@@ -32,6 +32,7 @@
 		75B5871F1EA45EA100F4266B /* CropDragPointManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B5871A1EA45EA100F4266B /* CropDragPointManager.swift */; };
 		75B587201EA45EA100F4266B /* DimmingMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B5871B1EA45EA100F4266B /* DimmingMaskView.swift */; };
 		75B587221EA4797700F4266B /* SizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B587211EA4797700F4266B /* SizeViewController.swift */; };
+		75B587251EA5AA8600F4266B /* ExportUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B587241EA5AA8600F4266B /* ExportUtility.swift */; };
 		75CB98021DC6F0EF004AAEE4 /* MCWoolImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CB98011DC6F0EF004AAEE4 /* MCWoolImage.swift */; };
 		75CB98071DC6F46C004AAEE4 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CB98061DC6F46C004AAEE4 /* PreviewViewController.swift */; };
 		75CB980B1DC6FDFA004AAEE4 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CB980A1DC6FDFA004AAEE4 /* LoadingView.swift */; };
@@ -92,6 +93,7 @@
 		75B5871A1EA45EA100F4266B /* CropDragPointManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CropDragPointManager.swift; sourceTree = "<group>"; };
 		75B5871B1EA45EA100F4266B /* DimmingMaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimmingMaskView.swift; sourceTree = "<group>"; };
 		75B587211EA4797700F4266B /* SizeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeViewController.swift; sourceTree = "<group>"; };
+		75B587241EA5AA8600F4266B /* ExportUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportUtility.swift; sourceTree = "<group>"; };
 		75CB98011DC6F0EF004AAEE4 /* MCWoolImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCWoolImage.swift; sourceTree = "<group>"; };
 		75CB98061DC6F46C004AAEE4 /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		75CB980A1DC6FDFA004AAEE4 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		75729D901DC3BC220094B2E8 /* MCArt-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				75B587231EA5AA6400F4266B /* Exporting */,
 				75B587161EA45E9000F4266B /* Cropping */,
 				75E866241E8E11BA00400BE8 /* Cells */,
 				75E8661B1E8E0DF700400BE8 /* Layouts */,
@@ -271,6 +274,14 @@
 				75B5871B1EA45EA100F4266B /* DimmingMaskView.swift */,
 			);
 			name = Cropping;
+			sourceTree = "<group>";
+		};
+		75B587231EA5AA6400F4266B /* Exporting */ = {
+			isa = PBXGroup;
+			children = (
+				75B587241EA5AA8600F4266B /* ExportUtility.swift */,
+			);
+			name = Exporting;
 			sourceTree = "<group>";
 		};
 		75E866151E8E0DA800400BE8 /* Extensions */ = {
@@ -455,6 +466,7 @@
 				75B587221EA4797700F4266B /* SizeViewController.swift in Sources */,
 				75729DA51DC3E4C00094B2E8 /* MCSchematic.m in Sources */,
 				75B5871E1EA45EA100F4266B /* CropDragPointView.swift in Sources */,
+				75B587251EA5AA8600F4266B /* ExportUtility.swift in Sources */,
 				75E866311E8E1A7A00400BE8 /* Constants.swift in Sources */,
 				75B5871D1EA45EA100F4266B /* CropRectView.swift in Sources */,
 				75729D941DC3BC220094B2E8 /* ViewController.swift in Sources */,

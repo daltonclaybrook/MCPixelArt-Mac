@@ -44,7 +44,21 @@ class SizeViewController: UIViewController {
     
     @IBAction func previewSaveButtonPressed(_ sender: Any) {
         guard let image = image else { return }
-        
+        if let woolImage = currentWoolImage {
+            save(woolImage: woolImage)
+        } else {
+            createPreview(with: image)
+        }
+    }
+    
+    @IBAction func sizeSegmentValueChanged(_ sender: Any) {
+        currentWoolImage = nil
+        previewSaveButton.setTitle("PREVIEW", for: .normal)
+    }
+    
+    //MARK: Private
+    
+    private func createPreview(with image: UIImage) {
         loadingView.showInView(view: view)
         DispatchQueue.global(qos: .userInitiated).async {
             let processor = ImageProcessor(transformer: WoolColorTransformer())
@@ -58,12 +72,9 @@ class SizeViewController: UIViewController {
         }
     }
     
-    @IBAction func sizeSegmentValueChanged(_ sender: Any) {
-        currentWoolImage = nil
-        previewSaveButton.setTitle("PREVIEW", for: .normal)
+    private func save(woolImage: WoolImage) {
+        delegate?.sizeViewController(self, created: woolImage)
     }
-    
-    //MARK: Private
     
     private func sizeFromSelectedSegment() -> CGSize {
         guard let image = image else { return .zero }

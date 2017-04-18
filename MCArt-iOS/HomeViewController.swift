@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueID.homeCollection, let collectionController = segue.destination as? HomeCollectionViewController {
             self.collectionController = collectionController
+            collectionController.delegate = self
         } else if segue.identifier == SegueID.size,
             let viewController = segue.destination as? SizeViewController,
             let image = sender as? UIImage {
@@ -101,5 +102,14 @@ extension HomeViewController: SizeViewControllerDelegate {
     
     func sizeViewController(_ viewController: SizeViewController, created woolImage: WoolImage) {
         dismiss(animated: true, completion: nil)
+        collectionController.woolImages.append(woolImage)
+        collectionController.collectionView?.reloadData()
+    }
+}
+
+extension HomeViewController: HomeCollectionViewControllerDelegate {
+    
+    func homeCollectionViewController(_ viewController: HomeCollectionViewController, shouldExport image: WoolImage) {
+        ExportUtility().prepareAndExport(image: image, fromVC: self)
     }
 }

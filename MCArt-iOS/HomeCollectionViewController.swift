@@ -8,12 +8,17 @@
 
 import UIKit
 
+protocol HomeCollectionViewControllerDelegate: class {
+    func homeCollectionViewController(_ viewController: HomeCollectionViewController, shouldExport image: WoolImage)
+}
+
 class HomeCollectionViewController: UICollectionViewController {
     var aspectLayout: AspectCollectionViewLayout {
         return collectionViewLayout as! AspectCollectionViewLayout
     }
     
     var woolImages = [WoolImage]()
+    weak var delegate: HomeCollectionViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +37,18 @@ class HomeCollectionViewController: UICollectionViewController {
         return cell
     }
     
-    //MARK: Private
+    //MARK: UICollectionViewDelegate
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let woolImage = woolImages[indexPath.item]
+        let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        sheet.addAction(UIAlertAction(title: "Export Schematic", style: .default, handler: { [weak self] (action) in
+            guard let strongSelf = self else { return }
+            strongSelf.delegate?.homeCollectionViewController(strongSelf, shouldExport: woolImage)
+        }))
+        sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(sheet, animated: true, completion: nil)
+    }
 }
 
 extension HomeCollectionViewController: AspectLayoutDataSource {
